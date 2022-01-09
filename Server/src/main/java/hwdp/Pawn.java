@@ -5,8 +5,8 @@ import java.awt.*;
 public abstract class Pawn {
     public int [] position;
     public enum status{
-        ACTIVE,
-        DEAD
+        ACTIVE(),
+        DEAD();
     }
     public Shape shape;
     public int[] possiblemoves;
