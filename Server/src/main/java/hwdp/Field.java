@@ -4,21 +4,14 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class Field {
-    public Shape shape;
-    public ArrayList<Pawn> pawns;
-    public enum status {
+    protected Shape shape;
+    protected ArrayList<Pawn> pawns;
+    protected enum status{}
 
-    }
+    public abstract Shape getShape();
 
-    public Shape getShape(){
-        return this.shape;
-    }
+    public abstract void addPawn(Pawn pawntoadd);
 
-    public void addPawn(Pawn pawntoadd){
-        pawns.add(pawntoadd);
-    }
+    public abstract void removePawn(Pawn pawntomremove);
 
-    public void removePawn(Pawn pawntomremove){
-        pawns.remove(pawntomremove);
-    }
 }

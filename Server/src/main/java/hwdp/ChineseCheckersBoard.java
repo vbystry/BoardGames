@@ -1,27 +1,33 @@
 package hwdp;
 
-public class ChineseCheckersBoard extends Board{
-    public void generateBoard(){
-        double ix = 130;
-        double iy = 10;
-        final int mycdiameter = 50;
-        this.fields = new MyShape[25][17];
+import java.util.ArrayList;
 
+public class ChineseCheckersBoard extends Board{
+    private final double initx = 130;
+    private final double inity = 10;
+    private double ix, iy;
+    final private int mycdiameter = 50;
+    final private int standarddis = 10;
+    @Override
+    public void generateBoard(){
+        this.fields = new MyShape[25][17];
+        ix = initx;
+        iy = inity;
         for(int i = 0; i < 17; i++){
             for(int j = 0; j < 25; j++){
                 if(j % 2 == 0) {
-                    fields[j][i] = new MyShape(ix, iy, mycdiameter, mycdiameter);
-                    ix += 60;
+                    fields[j][i] = new MyShape(this.convertCoordX(j, i), this.convertCoordY(i), mycdiameter, mycdiameter);
+                    //ix += (mycdiameter + standarddis);
                 } else{
                     fields[j][i] = null;
                 }
             }
             if(i % 2 == 0){
-                ix = 100;
+                //ix = initx - ((mycdiameter + standarddis) / 2);
             } else{
-                ix = 130;
+                //ix = initx;
             }
-            iy += 50;
+            //iy += mycdiameter;
         }
         //usuwanie czesci planszy
         //lewy gorny rog
@@ -91,4 +97,25 @@ public class ChineseCheckersBoard extends Board{
         }
 
     }
+
+    @Override
+    public void setPawns(ArrayList<Pawn> pawns, int playeram) {
+
+    }
+
+    @Override
+    public double convertCoordX(int x, int y) {
+
+        if(y % 2 == 0){
+            return initx + (x/2) * (mycdiameter + standarddis);
+        } else {
+            return initx - ((mycdiameter + standarddis) / 2) + (x/2) * (mycdiameter + standarddis);
+        }
+    }
+
+    @Override
+    public double convertCoordY(int y){
+        return inity + y * mycdiameter;
+    }
+
 }
