@@ -3,28 +3,17 @@ package hwdp;
 import java.awt.*;
 
 public abstract class Pawn {
-    public int [] position;
-    public enum status{
-        ACTIVE(),
-        DEAD();
-    }
-    public Shape shape;
-    public int[] possiblemoves;
-    public Board asbtractboard;
+    protected int[] position;
+    protected Shape shape;
+    protected int[][] possibleMoves;
 
-    public void moveThePawn(int[] vector){
-
+    public void move(int[] position){
+        this.position=position;
     }
 
-    public void scaleThePawn(double scale){
-
+    public void scale(double scale){
+        return;
     }
 
-    public void killThePawn(){
-
-    }
-    public void rescueThePawn(){
-
-    }
 
 }
