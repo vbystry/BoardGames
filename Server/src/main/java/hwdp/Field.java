@@ -7,8 +7,7 @@ public abstract class Field {
     public Shape shape;
     public ArrayList<Pawn> pawns;
     public enum status {
-        LIGHTED(),
-        DIMMED();
+
     }
 
     public Shape getShape(){
