@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public abstract class Field {
     protected Shape shape;
     protected ArrayList<Pawn> pawns;
-    protected enum status{}
     protected int[] position;
 
     Field(Shape shape, int[] position){

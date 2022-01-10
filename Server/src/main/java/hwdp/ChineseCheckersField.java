@@ -12,16 +12,18 @@ public class ChineseCheckersField extends Field{
 
     @Override
     public Shape getShape() {
-        return null;
+        return this.shape;
     }
 
     @Override
     public void addPawn(Pawn pawntoadd) {
+        pawns.add(pawntoadd);
 
     }
 
     @Override
     public void removePawn(Pawn pawntomremove) {
+        pawns.remove(pawntomremove);
 
     }
 
