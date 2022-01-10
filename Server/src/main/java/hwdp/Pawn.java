@@ -19,5 +19,9 @@ public abstract class Pawn {
         return this.position;
     }
 
+    public int getPlayerNo(){
+        return playerNo;
+    }
+
 
 }

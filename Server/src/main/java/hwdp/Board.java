@@ -14,7 +14,7 @@ public abstract class Board {
     }*/
     public abstract void setPawns(ArrayList<Pawn> pawns);
 
-    public abstract ArrayList<Shape> getPossibleMoves(Pawn pawn);
+    public abstract ArrayList<Field> getPossibleMoves(Pawn pawn);
 
 
 

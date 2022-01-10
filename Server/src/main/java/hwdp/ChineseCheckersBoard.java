@@ -17,8 +17,10 @@ public class ChineseCheckersBoard extends Board{
         for(int i = 0; i < 17; i++){
             for(int j = 0; j < 25; j++){
                 if(j % 2 == 0) {
-                    fields[j][i] = new ChineseCheckersField();
-                    fields[j][i].shape = new MyShape(this.convertCoordX(j, i), this.convertCoordY(i), mycdiameter, mycdiameter);
+                    int[] position = {j, i};
+                    fields[j][i] = new ChineseCheckersField(new MyShape(this.convertCoordX(j, i), this.convertCoordY(i), mycdiameter, mycdiameter), position);
+                    //fields[j][i].shape = new MyShape(this.convertCoordX(j, i), this.convertCoordY(i), mycdiameter, mycdiameter);
+                    //fields[j][i].position = {j, i};
                     //ix += (mycdiameter + standarddis);
                 } else{
                     fields[j][i] = null;
@@ -109,8 +111,8 @@ public class ChineseCheckersBoard extends Board{
     }
 
     @Override
-    public ArrayList<Shape> getPossibleMoves(Pawn pawn) {   //pewnie o czyms i tak zapomnialem
-        ArrayList<Shape> returnList = new ArrayList<Shape>();
+    public ArrayList<Field> getPossibleMoves(Pawn pawn) {   //pewnie o czyms i tak zapomnialem
+        ArrayList<Field> returnList = new ArrayList<Field>();
         for(int i=0; i<6; i++)
         {
             int[] xy= pawn.getPosition();
@@ -129,8 +131,8 @@ public class ChineseCheckersBoard extends Board{
                     {
                         pawnCounter=counter;
                     }
-                    double[] coords = ChineseCheckers.covertCoords(xy, "Field");
-                    returnList.add(new MyShape(coords[1], coords[0], 1, 1));    //dopilnowac kolejnosc kordow, zmienic dlugosc i szerokosc
+                    //double[] coords = ChineseCheckers.covertCoords(xy, "Field");
+                    returnList.add(this.fields[xy[0]][xy[1]]);    //dopilnowac kolejnosc kordow, zmienic dlugosc i szerokosc
                 }
                 else
                 {
@@ -147,8 +149,8 @@ public class ChineseCheckersBoard extends Board{
                     }
                     else if(counter-pawnCounter == pawnCounter)
                     {
-                        double[] coords = ChineseCheckers.covertCoords(xy, "Field");
-                        returnList.add(new MyShape(coords[1], coords[0], 1, 1));
+                        //double[] coords = ChineseCheckers.covertCoords(xy, "Field");
+                        returnList.add(this.fields[xy[0]][xy[1]]);
                     }
                 }
                 counter++;

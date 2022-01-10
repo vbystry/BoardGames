@@ -1,5 +1,7 @@
 package hwdp;
 
+import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class ChineseCheckers extends Game{
@@ -28,6 +30,43 @@ public class ChineseCheckers extends Game{
     @Override
     protected Board createBoard() {
         return null;
+    }
+
+    @Override
+    protected int HandleClickInfo(MouseEvent e, int playerNo) {   //1- kontynuujemy runde, 0- koniec
+        if(activePawn != null)
+        {
+            if(activePawn.shape.contains(e.getPoint()))
+            {
+                return 0;
+            }
+            else
+            {
+                for(Field possibleMove : actualPossibleMoves) {
+                    if (possibleMove.shape.contains(e.getPoint())) {
+                        movePawn(activePawn, possibleMove.getPosition());
+                        return 1;
+                    }
+                }
+            }
+
+        }
+        else
+        {
+            for(Pawn P : pawns)
+            {
+                if (P.shape.contains(e.getPoint()) && P.getPlayerNo() == playerNo) {
+                    activePawn = P;
+                    return 1;
+                }
+            }
+        }
+        return 1;
+    }
+
+    @Override
+    protected void movePawn(Pawn P, int[] position) {
+        P.move(position);
     }
 
 

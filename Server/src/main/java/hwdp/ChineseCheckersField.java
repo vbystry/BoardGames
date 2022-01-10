@@ -4,6 +4,12 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class ChineseCheckersField extends Field{
+
+
+    ChineseCheckersField(Shape shape, int[] position) {
+        super(shape, position);
+    }
+
     @Override
     public Shape getShape() {
         return null;

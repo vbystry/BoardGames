@@ -1,12 +1,14 @@
 package hwdp;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public abstract class Game {
     Board board;
     ArrayList<Pawn> pawns;
-    ArrayList<Shape> actualPossibleMoves;
+    ArrayList<Field> actualPossibleMoves;
+    Pawn activePawn;
 
     protected abstract void Round();
 
@@ -15,6 +17,10 @@ public abstract class Game {
     protected abstract ArrayList<Pawn> createPawns();
 
     protected abstract Board createBoard();
+
+    protected abstract int HandleClickInfo(MouseEvent e, int playerNo);
+
+    protected abstract void movePawn(Pawn P, int[] position);
 
     public static double[] covertCoords(int[] coords, String type){ //chyba tez to lepiej wywalic (jak enum)
         return new double[0];
