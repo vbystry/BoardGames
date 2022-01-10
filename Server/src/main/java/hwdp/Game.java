@@ -10,13 +10,18 @@ public abstract class Game {
     ArrayList<Field> actualPossibleMoves;
     Pawn activePawn;
 
+    Game(int playerAm){
+        createPawns();
+        createBoard();
+    }
+
     protected abstract void Round();
 
-    protected abstract void Queue(int PlayersNo);
+    protected abstract void Queue(int PlayerNo);
 
-    protected abstract ArrayList<Pawn> createPawns();
+    protected abstract void createPawns();
 
-    protected abstract Board createBoard();
+    protected abstract void createBoard();
 
     protected abstract int HandleClickInfo(MouseEvent e, int playerNo);
 

@@ -7,6 +7,10 @@ import java.util.ArrayList;
 public abstract class Board {
     protected Field[][] fields;
 
+    Board(){
+        generateBoard();
+    }
+
     public abstract void generateBoard();
 
     /*public Shape getPossibleMoves(Pawn p, int moveno){
@@ -14,7 +18,7 @@ public abstract class Board {
     }*/
     public abstract void setPawns(ArrayList<Pawn> pawns);
 
-    public abstract ArrayList<Field> getPossibleMoves(Pawn pawn);
+    public abstract ArrayList<Field> getPossibleMoves(Pawn pawn, int moveNo);
 
 
 

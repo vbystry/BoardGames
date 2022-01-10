@@ -12,24 +12,34 @@ public class ChineseCheckers extends Game{
     final static private int mycdiameter = 50;
     final static private int standarddis = 10;
 
+    ChineseCheckers(int playerAm){      //nie wiem czy tu nie bedzie problem, tzn czy w super beda sie wywolwyaly metody nadpisane czy nie
+        super(playerAm);
+    }
+
     @Override
     protected void Round() {
 
     }
 
     @Override
-    protected void Queue(int PlayersNo) {
-
+    protected void Queue(int PlayerNo) {
+        int queueFlag=1;
+        while(queueFlag>0)
+        {
+            //oczekiwanie i pobieranie e od klienta
+            //MouseEvent e = new MouseEvent();
+            //queueFlag=HandleClickInfo(e, PlayerNo);
+        }
     }
 
     @Override
-    protected ArrayList<Pawn> createPawns() {
-        return null;
+    protected void createPawns() {
     }
 
     @Override
-    protected Board createBoard() {
-        return null;
+    protected void createBoard() {
+        this.board = new ChineseCheckersBoard();
+        this.board.setPawns(pawns);
     }
 
     @Override

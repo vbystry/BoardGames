@@ -9,6 +9,11 @@ public class ChineseCheckersBoard extends Board{
     private double ix, iy;
     final private int mycdiameter = 50;
     final private int standarddis = 10;
+
+    ChineseCheckersBoard(){
+        super();
+    }
+
     @Override
     public void generateBoard(){
         this.fields = new Field[25][17];
@@ -111,7 +116,7 @@ public class ChineseCheckersBoard extends Board{
     }
 
     @Override
-    public ArrayList<Field> getPossibleMoves(Pawn pawn) {   //pewnie o czyms i tak zapomnialem
+    public ArrayList<Field> getPossibleMoves(Pawn pawn, int moveNo) {   //pewnie o czyms i tak zapomnialem
         ArrayList<Field> returnList = new ArrayList<Field>();
         for(int i=0; i<6; i++)
         {
