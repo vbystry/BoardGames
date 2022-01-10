@@ -12,7 +12,10 @@ public abstract class Pawn {
     }
 
     public void scale(double scale){
-        return;
+    }
+
+    public int[] getPosition(){
+        return this.position;
     }
 
 

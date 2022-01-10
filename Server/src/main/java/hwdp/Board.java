@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class Board {
-    protected Shape[][] fields;
+    protected Field[][] fields;
 
     public abstract void generateBoard();
 
@@ -13,6 +13,8 @@ public abstract class Board {
         return new ArrayList<Shape>;
     }*/
     public abstract void setPawns(ArrayList<Pawn> pawns, int playeram);
+
+    public abstract ArrayList<Shape> getPossibleMoves(Pawn pawn);
 
 
 

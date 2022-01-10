@@ -14,4 +14,6 @@ public abstract class Field {
 
     public abstract void removePawn(Pawn pawntomremove);
 
+    public abstract ArrayList<Pawn> getPawns();
+
 }

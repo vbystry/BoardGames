@@ -12,7 +12,7 @@ public class ChineseCheckersPawn extends Pawn{
         super();
         this.position= position;
         this.possibleMoves= new int[6][2];
-
+        //zmienic x z y
         this.possibleMoves[0][0]=2;
         this.possibleMoves[0][1]=0;
 
