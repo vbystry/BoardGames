@@ -12,7 +12,7 @@ public abstract class Board {
     /*public Shape getPossibleMoves(Pawn p, int moveno){
         return new ArrayList<Shape>;
     }*/
-    public abstract void setPawns(ArrayList<Pawn> pawns, int playeram);
+    public abstract void setPawns(ArrayList<Pawn> pawns);
 
     public abstract ArrayList<Shape> getPossibleMoves(Pawn pawn);
 

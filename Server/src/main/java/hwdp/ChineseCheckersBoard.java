@@ -98,13 +98,14 @@ public class ChineseCheckersBoard extends Board{
             i++;
         }
 
-
-
     }
 
     @Override
-    public void setPawns(ArrayList<Pawn> pawns, int playeram) {
-
+    public void setPawns(ArrayList<Pawn> pawns) {
+        for(Pawn P : pawns)
+        {
+            this.fields[P.getPosition()[0]][P.getPosition()[1]].addPawn(P);
+        }
     }
 
     @Override

@@ -8,8 +8,7 @@ public class ChineseCheckersPawn extends Pawn{
         Winning
     }
 
-    public ChineseCheckersPawn(int[] position, int[] convertedPosition){
-        super();
+    public ChineseCheckersPawn(int[] position, int[] convertedPosition, int playerNo){
         this.position= position;
         this.possibleMoves= new int[6][2];
         //zmienic x z y
@@ -37,6 +36,10 @@ public class ChineseCheckersPawn extends Pawn{
 
     public void setStatus(status S) {
         this.Status=S;
+    }
+
+    public status getStatus(){
+        return this.Status;
     }
 
 

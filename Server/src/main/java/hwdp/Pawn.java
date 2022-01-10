@@ -6,6 +6,7 @@ public abstract class Pawn {
     protected int[] position;
     protected Shape shape;
     protected int[][] possibleMoves;
+    protected int playerNo;
 
     public void move(int[] position){
         this.position=position;
