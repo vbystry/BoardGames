@@ -34,6 +34,7 @@ public class ChineseCheckers extends Game{
 
     @Override
     protected void createPawns() {
+
     }
 
     @Override

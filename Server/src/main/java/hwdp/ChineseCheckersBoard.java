@@ -104,6 +104,7 @@ public class ChineseCheckersBoard extends Board{
             fields[24][i] = null;
             i++;
         }
+        fields[22][8] = null;
 
     }
 
