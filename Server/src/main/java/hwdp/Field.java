@@ -11,6 +11,7 @@ public abstract class Field {
     Field(Shape shape, int[] position){
         this.shape=shape;
         this.position=position;
+        this.pawns= new ArrayList<Pawn>();
     }
 
     public abstract Shape getShape();

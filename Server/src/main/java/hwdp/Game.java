@@ -11,8 +11,9 @@ public abstract class Game {
     Pawn activePawn;
 
     Game(int playerAm){
-        createPawns(2);
-        createBoard();
+        //this.pawns= new ArrayList<Pawn>();
+        this.createPawns(playerAm);
+        this.createBoard();
     }
 
     protected abstract void Round();

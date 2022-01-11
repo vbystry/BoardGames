@@ -34,7 +34,7 @@ public class ChineseCheckers extends Game{
 
     @Override
     protected void createPawns(int numofplayers) {
-        pawns = new ArrayList<Pawn>();   //tu nie powinna być tablica? czy jak w końcu robimy
+        this.pawns = new ArrayList<Pawn>();
         int mid, left, right;
         int[] pos = new int[2];
         double[] convpos;
