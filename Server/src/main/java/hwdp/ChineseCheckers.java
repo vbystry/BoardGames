@@ -33,7 +33,43 @@ public class ChineseCheckers extends Game{
     }
 
     @Override
-    protected void createPawns() {
+    protected void createPawns(int numofplayers) {
+        pawns = new ArrayList<ChineseCheckersPawn>();
+        int mid, left, right;
+        int[] pos = new int[2];
+        double[] convpos;
+        switch (numofplayers){
+            case 2:
+                //north corner
+
+                mid = 12;
+                left = mid;
+                right = mid;
+                for (int y = 0; y < 4; y++) {
+                    for (int x = left; x <= right; x += 2) {
+
+                        System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                        try {
+                            pos[0] = x;
+                            pos[1] = y;
+                            convpos = covertCoords(pos, "Pawn");
+                            pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if(y == 0 || y == 2){
+                        right += 2;
+                    }
+                    if(y == 1){
+                        left -= 2;
+                    }
+                }
+                break;
+            default:
+                System.out.println("cos nei tak");
+        }
 
     }
 
@@ -99,7 +135,7 @@ public class ChineseCheckers extends Game{
     private static double[] pawnCoordsConv(int[] coords){
         double[] converted = new double[2];
 
-        if(coords[2] % 2 == 0){
+        if(coords[0] % 2 == 0){
             converted[1] = initx + (coords[0]/2) * (mycdiameter + standarddis)+3;   //zmienic +3 XD dalem losowo
         } else {
             converted[1] = initx - ((mycdiameter + standarddis) / 2) + (coords[0]/2) * (mycdiameter + standarddis)+3;
@@ -117,7 +153,7 @@ public class ChineseCheckers extends Game{
     public static double[] fieldCoordsConv(int[] coords){
         double[] converted = new double[2];
 
-        if(coords[2] % 2 == 0){
+        if(coords[0] % 2 == 0){
             converted[0] = initx + (coords[0]/2) * (mycdiameter + standarddis);
         } else {
             converted[0] = initx - ((mycdiameter + standarddis) / 2) + (coords[0]/2) * (mycdiameter + standarddis);

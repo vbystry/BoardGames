@@ -11,7 +11,7 @@ public abstract class Game {
     Pawn activePawn;
 
     Game(int playerAm){
-        createPawns();
+        createPawns(2);
         createBoard();
     }
 
@@ -19,7 +19,9 @@ public abstract class Game {
 
     protected abstract void Queue(int PlayerNo);
 
-    protected abstract void createPawns();
+
+
+    protected abstract void createPawns(int numofplayers);
 
     protected abstract void createBoard();
 
