@@ -38,8 +38,8 @@ public class ChineseCheckers extends Game{
         int mid, left, right;
         int[] pos = new int[2];
         double[] convpos;
-        switch (numofplayers){
-            case 2:
+        if(numofplayers == 2 || numofplayers == 4 || numofplayers == 6){
+
                 //north corner
 
                 mid = 12;
@@ -66,9 +66,144 @@ public class ChineseCheckers extends Game{
                         left -= 2;
                     }
                 }
-                break;
-            default:
-                System.out.println("cos nei tak");
+
+                //south corner
+
+                left = mid;
+                right = mid;
+                for (int y = 16; y > 12; y--) {
+                    for (int x = left; x <= right; x += 2) {
+
+                        System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                        try {
+                            pos[0] = x;
+                            pos[1] = y;
+                            convpos = covertCoords(pos, "Pawn");
+                            pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if(y == 16 || y == 14){
+                        right += 2;
+                    }
+                    if(y == 15){
+                        left -= 2;
+                    }
+                }
+
+        }
+
+        if(numofplayers == 4 || numofplayers == 6){
+            //north east corner
+
+            mid = 22;
+            left = mid;
+            right = mid;
+            for (int y = 9; y < 13; y++) {
+                for (int x = left; x <= right; x += 2) {
+
+                    System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                    try {
+                        pos[0] = x;
+                        pos[1] = y;
+                        convpos = covertCoords(pos, "Pawn");
+                        pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(y == 9 || y == 11){
+                    left -= 2;
+                }
+                if(y == 10){
+                    right += 2;
+                }
+            }
+
+            //south west corner
+
+            mid = 4;
+            left = mid;
+            right = mid;
+            for (int y = 9; y < 13; y++) {
+
+                for (int x = left; x <= right; x += 2) {
+
+                    System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                    try {
+                        pos[0] = x;
+                        pos[1] = y;
+                        convpos = covertCoords(pos, "Pawn");
+                        pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+                if (y == 9 || y == 11) {
+                    left -= 2;
+                }
+                if (y == 10) {
+                    right += 2;
+                }
+
+            }
+
+        }
+        if(numofplayers == 6){
+
+            //south east corner
+
+            mid = 22;
+            left = mid;
+            right = mid;
+            for (int y = 7; y >= 4; y--) {
+                for (int x = left; x <= right; x += 2) {
+
+                    System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                    try {
+                        pos[0] = x;
+                        pos[1] = y;
+                        convpos = covertCoords(pos, "Pawn");
+                        pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(y == 7 || y == 5){
+                    left -= 2;
+                }
+                if(y == 6){
+                    right += 2;
+                }
+            }
+
+            //north west corner
+
+            mid = 4;
+            left = mid;
+            right = mid;
+            for (int y = 7; y >= 4; y--) {
+                for (int x = left; x <= right; x += 2) {
+
+                    System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                    try {
+                        pos[0] = x;
+                        pos[1] = y;
+                        convpos = covertCoords(pos, "Pawn");
+                        pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(y == 7 || y == 5){
+                    left -= 2;
+                }
+                if(y == 6){
+                    right += 2;
+                }
+            }
         }
 
     }
