@@ -48,7 +48,7 @@ public class ChineseCheckers extends Game{
                 for (int y = 0; y < 4; y++) {
                     for (int x = left; x <= right; x += 2) {
 
-                        System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                        //System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
                         try {
                             pos[0] = x;
                             pos[1] = y;
@@ -74,7 +74,7 @@ public class ChineseCheckers extends Game{
                 for (int y = 16; y > 12; y--) {
                     for (int x = left; x <= right; x += 2) {
 
-                        System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                        //System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
                         try {
                             pos[0] = x;
                             pos[1] = y;
@@ -103,7 +103,7 @@ public class ChineseCheckers extends Game{
             for (int y = 9; y < 13; y++) {
                 for (int x = left; x <= right; x += 2) {
 
-                    System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                    //System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
                     try {
                         pos[0] = x;
                         pos[1] = y;
@@ -130,7 +130,7 @@ public class ChineseCheckers extends Game{
 
                 for (int x = left; x <= right; x += 2) {
 
-                    System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                    //System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
                     try {
                         pos[0] = x;
                         pos[1] = y;
@@ -161,7 +161,7 @@ public class ChineseCheckers extends Game{
             for (int y = 7; y >= 4; y--) {
                 for (int x = left; x <= right; x += 2) {
 
-                    System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                    //System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
                     try {
                         pos[0] = x;
                         pos[1] = y;
@@ -187,7 +187,7 @@ public class ChineseCheckers extends Game{
             for (int y = 7; y >= 4; y--) {
                 for (int x = left; x <= right; x += 2) {
 
-                    System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                    //System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
                     try {
                         pos[0] = x;
                         pos[1] = y;

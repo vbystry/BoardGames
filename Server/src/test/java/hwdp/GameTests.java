@@ -12,5 +12,8 @@ public class GameTests{
 
         assertEquals(60, testgame.pawns.size());
 
+        ChineseCheckers test2 = new ChineseCheckers(4);
+        assertEquals(40, test2.pawns.size());
+
     }
 }
