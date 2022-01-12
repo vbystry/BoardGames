@@ -13,8 +13,7 @@ import java.util.concurrent.Executors;
  * Hello world!
  *
  */
-public class App 
-{
+public class App {
     // All client names, so we can check for duplicates upon registration.
     private static Set<String> names = new HashSet<>();
 
@@ -29,4 +28,5 @@ public class App
                 pool.execute(new Player(listener.accept()));
             }
         }
+    }
 }

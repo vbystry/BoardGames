@@ -32,7 +32,7 @@ public class Player implements Runnable{
     public void startGame(Game game){
         ArrayList<Shape> board;
 
-        for
+        //for
 
     }
 
