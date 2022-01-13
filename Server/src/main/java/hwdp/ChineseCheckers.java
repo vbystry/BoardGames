@@ -8,7 +8,7 @@ public class ChineseCheckers extends Game{
 
     private static final double initx = 130;
     private static final double inity = 10;
-    private static double ix, iy;
+    //private static double ix, iy;
     final static private int mycdiameter = 50;
     final static private int standarddis = 10;
 
