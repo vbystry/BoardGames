@@ -24,17 +24,17 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
     private Jsonb jsonb = JsonbBuilder.create();
 
     public GamePanel(Scanner in, PrintWriter out){
-        /*this.in=in;
+        this.in=in;
         this.out=out;
 
-        String data=in.nextLine();
+        String data;
 
-        while(!data.equals("Start"))
+        while(!in.hasNextLine())
         {
-            data=in.nextLine();
-        }
 
-        board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());*/
+        }
+        data=in.nextLine();
+        board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
     }
     public Shape[][] readBoardFromBuffer(){
         return null;
@@ -46,8 +46,13 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
     private void drawGame(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         g2d.setPaint(new Color(20,50,70));
-        Rectangle2D rec = new Rectangle2D.Double(100,100,20,50);
-        g2d.fill(rec);
+        //Rectangle2D rec = new Rectangle2D.Double(100,100,20,50);
+        //g2d.fill(rec);
+
+        for(Shape shape : todraw)
+        {
+            g2d.fill(shape);
+        }
 
 
     }

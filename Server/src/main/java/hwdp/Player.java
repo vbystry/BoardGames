@@ -47,7 +47,9 @@ public class Player implements Runnable{
 
         String data=jsonb.toJson(board);
 
-        out.println();
+        out.println(data);
+
+        System.out.println(data);
 
         return 1;
     }
@@ -87,6 +89,7 @@ public class Player implements Runnable{
 
                     if(master.newGame(gameName, playerAm, this)==1)
                     {
+                        System.out.println("Ur waiting in a queue");
                         out.println("Ur waiting in a queue");
                         while(!gameOver) {}
                         gameOver=false;

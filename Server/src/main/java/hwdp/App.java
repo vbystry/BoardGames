@@ -26,7 +26,7 @@ public class App
 
     public int newGame(String Name, String playerAm, Player caller){
         switch (Name){
-            case "ChineseCheckers":
+            case "Chinese Checkers":
                 try{
                     int playersNum= Integer.parseInt(playerAm);
                     //checking valid playerAm
@@ -34,7 +34,7 @@ public class App
                         for(Game game : this.games){
                             if(game.playerAm==playersNum && game instanceof ChineseCheckers)
                             {
-                                game.players.add(caller);
+                                game.addPlayer(caller);
                                 return 1;
                             }
                         }

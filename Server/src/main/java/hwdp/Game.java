@@ -22,10 +22,19 @@ public abstract class Game implements Runnable{
         this.createBoard();
         this.players = new ArrayList<Player>();
 
-        while(this.players.size()<playerAm) {}
+        //while(this.players.size()<playerAm) {}
 
-        for(Player P : this.players){
-            P.startGame(this);
+
+    }
+
+    public void addPlayer(Player player){
+        this.players.add(player);
+
+        if(this.players.size()==(this.playerAm-1))
+        {
+            for(Player P : this.players){
+                P.startGame(this);
+            }
         }
     }
 

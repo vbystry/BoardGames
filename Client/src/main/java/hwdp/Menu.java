@@ -88,13 +88,7 @@ public class Menu extends JFrame implements ActionListener{
                         players = 6;
                 }
             } else if(choiceofgame.equals(source)){
-
-
                         gamename = selected;
-
-
-
-
 
             } else if(button.equals(source)){
                 System.out.println("START GAME");
@@ -109,6 +103,15 @@ public class Menu extends JFrame implements ActionListener{
 
     }
     private void play(int players, String game){
+        String data=in.nextLine();
+
+        while(!data.equals("Start"))
+        {
+            data=in.nextLine();
+        }
+
+        System.out.println(data);
+
         frame = new GameFrame(game, in, out);
 
     }
