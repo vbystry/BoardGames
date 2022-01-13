@@ -63,14 +63,14 @@ public class Menu extends JFrame implements ActionListener{
                 }
 
             } else if(button.equals(source)){
-                startGame(players, gamename);
+                play(players, gamename);
             }
         }catch (Exception ex){
             ex.printStackTrace();
         }
 
     }
-    private void startGame(int players, String game){
+    private void play(int players, String game){
         GameFrame frame = new GameFrame();
 
     }
