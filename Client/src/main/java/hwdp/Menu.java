@@ -6,18 +6,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Menu extends JFrame implements ActionListener{
-    private JComboBox choiceofgame;
-    private JComboBox amofplayers;
-    private JButton button;
+    private final JComboBox<String> choiceofgame;
+    private final JComboBox<String> amofplayers;
+    private final JButton button;
     private int players;
     private String gamename;
     private JLabel message;
     protected Menu(){
         super("Menu");
         setSize(300, 150);
-        choiceofgame = new JComboBox();
+        choiceofgame = new JComboBox<>();
         choiceofgame.addItem("Chinese Checkers");
-        amofplayers = new JComboBox();
+        choiceofgame.addItem("Other game in the future");
+        amofplayers = new JComboBox<String>();
         amofplayers.addItem("2");
         amofplayers.addItem("4");
         amofplayers.addItem("6");
@@ -25,6 +26,7 @@ public class Menu extends JFrame implements ActionListener{
         button.addActionListener(this);
         choiceofgame.addActionListener(this);
         amofplayers.addActionListener(this);
+
 
 
         add(button);
@@ -71,7 +73,7 @@ public class Menu extends JFrame implements ActionListener{
 
     }
     private void play(int players, String game){
-        GameFrame frame = new GameFrame();
+        GameFrame frame = new GameFrame(game);
 
     }
 }

@@ -8,8 +8,11 @@ public class GameFrame extends JFrame {
     public int turnflag;
     public Shape[][] board;
     public Shape[][] todraw;
-    public GameFrame(){
-        setSize(1300, 1150);
+    public GameFrame(String title){
+        super(title);
+        setSize(1300, 900);
+        panel = new JPanel();
+
         setDefaultCloseOperation(3);
         setVisible(true);
     }
