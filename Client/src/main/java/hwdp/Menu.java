@@ -16,6 +16,8 @@ public class Menu extends JFrame implements ActionListener{
         super("Menu");
         setSize(300, 150);
         choiceofgame = new JComboBox<>();
+        message = new JLabel();
+        message.setText("Witaj w menu wyboru gier, wybierz gre, ilosc graczy, a nstepnie prazycisk Play");
         choiceofgame.addItem("Chinese Checkers");
         choiceofgame.addItem("Other game in the future");
         amofplayers = new JComboBox<String>();
