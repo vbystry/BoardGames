@@ -5,11 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Menu extends JFrame {
+public class Menu extends JFrame implements ActionListener{
     private JComboBox choiceofgame;
     private JComboBox amofplayers;
     private JButton button;
     private int players;
+    private String gamename;
     private JLabel message;
     protected Menu(){
         super("Menu");
@@ -21,6 +22,9 @@ public class Menu extends JFrame {
         amofplayers.addItem("4");
         amofplayers.addItem("6");
         button = new JButton("Play");
+        button.addActionListener(this);
+        choiceofgame.addActionListener(this);
+        amofplayers.addActionListener(this);
 
 
         add(button);
@@ -31,24 +35,12 @@ public class Menu extends JFrame {
         setVisible(true);
     }
 
-    private void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e){
         try {
             String selected = choiceofgame.getSelectedItem().toString();
             Object source = e.getSource();
 
-            if(button.equals(source)){
-
-            } else if(choiceofgame.equals(source)){
-                switch (selected){
-                    case "Chinese Checkers":
-
-                        break;
-
-                    default:
-                        break;
-                }
-
-            } else if(amofplayers.equals(source)){
+            if(amofplayers.equals(source)){
                 switch (selected){
                     case "2":
                         players = 2;
@@ -59,10 +51,27 @@ public class Menu extends JFrame {
                     case "6":
                         players = 6;
                 }
+            } else if(choiceofgame.equals(source)){
+                switch (selected){
+                    case "Chinese Checkers":
+                        gamename = selected;
+
+                        break;
+
+                    default:
+                        break;
+                }
+
+            } else if(button.equals(source)){
+                startGame(players, gamename);
             }
         }catch (Exception ex){
             ex.printStackTrace();
         }
+
+    }
+    private void startGame(int players, String game){
+        GameFrame frame = new GameFrame();
 
     }
 }
