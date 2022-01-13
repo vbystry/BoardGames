@@ -13,7 +13,13 @@ public class ChineseCheckers extends Game{
     final static private int standarddis = 10;
 
     ChineseCheckers(int playerAm){      //nie wiem czy tu nie bedzie problem, tzn czy w super beda sie wywolwyaly metody nadpisane czy nie
+
         super(playerAm);
+
+        this.playerAm=playerAm;
+        this.createPawns(playerAm);
+        this.createBoard();
+        this.players = new ArrayList<Player>();
     }
 
     @Override
@@ -225,6 +231,18 @@ public class ChineseCheckers extends Game{
     protected void createBoard() {
         this.board = new ChineseCheckersBoard();
         this.board.setPawns(pawns);
+    }
+
+    public void addPlayer(Player player){       //tu
+        this.players.add(player);
+        System.out.println("Dodano gracza");
+        if(this.players.size()==(this.playerAm))
+        {
+            for(Player P : this.players){
+                System.out.println("wystartowało u nowego huja");
+                P.startGame(this);
+            }
+        }
     }
 
     @Override

@@ -11,7 +11,7 @@ public abstract class Board {
         generateBoard();
     }
 
-    public abstract void generateBoard();
+    public abstract void generateBoard();       //tu
 
     /*public Shape getPossibleMoves(Pawn p, int moveno){
         return new ArrayList<Shape>;

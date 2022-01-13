@@ -33,7 +33,9 @@ public class Player implements Runnable{
     }
 
     public int startGame(Game game){
-        ArrayList<Shape> board = new ArrayList<Shape>();
+        ArrayList<Shape> Lboard = new ArrayList<Shape>();
+
+        System.out.println("Started");
 
         out.println("Start");
 
@@ -41,11 +43,17 @@ public class Player implements Runnable{
         {
             for(int j=0; j<game.board.fields[0].length; j++)
             {
-                board.add(game.board.fields[i][j].shape);
+                //System.out.println(i);
+                //System.out.println(j);
+                if(game.board.fields[i][j]!=null)
+                {
+                    Lboard.add(game.board.fields[i][j].shape);
+                }
+
             }
         }
 
-        String data=jsonb.toJson(board);
+        String data=jsonb.toJson(Lboard);
 
         out.println(data);
 

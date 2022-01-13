@@ -17,26 +17,17 @@ public abstract class Game implements Runnable{
 
     Game(int playerAm){
         //this.pawns= new ArrayList<Pawn>();
-        this.playerAm=playerAm;
-        this.createPawns(playerAm);
-        this.createBoard();
-        this.players = new ArrayList<Player>();
+        //this.playerAm=playerAm;
+        //this.createPawns(playerAm);
+        //this.createBoard();
+        //this.players = new ArrayList<Player>();
 
         //while(this.players.size()<playerAm) {}
 
 
     }
 
-    public void addPlayer(Player player){
-        this.players.add(player);
-
-        if(this.players.size()==(this.playerAm-1))
-        {
-            for(Player P : this.players){
-                P.startGame(this);
-            }
-        }
-    }
+    public abstract void addPlayer(Player player);  //tu
 
     protected abstract int Round();
 

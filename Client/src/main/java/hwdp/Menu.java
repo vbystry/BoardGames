@@ -103,14 +103,19 @@ public class Menu extends JFrame implements ActionListener{
 
     }
     private void play(int players, String game){
-        String data=in.nextLine();
+        String data="";
 
         while(!data.equals("Start"))
         {
-            data=in.nextLine();
+            if(in.hasNextLine())
+            {
+                data=in.nextLine();
+                System.out.println(data);
+            }
+
         }
 
-        System.out.println(data);
+        //System.out.println(data);
 
         frame = new GameFrame(game, in, out);
 

@@ -11,7 +11,10 @@ public class ChineseCheckersBoard extends Board{
     final private int standarddis = 10;
 
     ChineseCheckersBoard(){
+
         super();
+
+        this.generateBoard();
     }
 
     @Override
@@ -105,6 +108,8 @@ public class ChineseCheckersBoard extends Board{
             i++;
         }
         fields[22][8] = null;
+
+        //System.out.println(fields[0][0].toString());
 
     }
 
