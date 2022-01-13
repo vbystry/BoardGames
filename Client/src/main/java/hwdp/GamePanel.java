@@ -24,7 +24,7 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
     private Jsonb jsonb = JsonbBuilder.create();
 
     public GamePanel(Scanner in, PrintWriter out){
-        this.in=in;
+        /*this.in=in;
         this.out=out;
 
         String data=in.nextLine();
@@ -34,7 +34,7 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
             data=in.nextLine();
         }
 
-        board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
+        board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());*/
     }
     public Shape[][] readBoardFromBuffer(){
         return null;

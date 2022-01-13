@@ -10,12 +10,14 @@ public class GameFrame extends JFrame {
 
 
     public GameFrame(String title, Scanner in,PrintWriter out){
+
         super(title);
+        setVisible(true);
         setSize(1300, 900);
         panel = new GamePanel(in, out);
         add(panel);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(true);
+
     }
 }

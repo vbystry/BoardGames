@@ -101,7 +101,7 @@ public class Menu extends JFrame implements ActionListener{
                 out.println("START GAME");
                 out.println("Chinese Checkers");
                 out.println("2");
-                play(players, gamename);
+                this.play(players, gamename);
             }
         }catch (Exception ex){
             ex.printStackTrace();
