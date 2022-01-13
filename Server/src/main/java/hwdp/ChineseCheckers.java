@@ -322,7 +322,6 @@ public class ChineseCheckers extends Game{
         }
 
         int playerNo=0;
-
         Round();
 
         for(Player player : players){
