@@ -35,6 +35,8 @@ public class Player implements Runnable{
     public int startGame(Game game){
         ArrayList<Shape> board = new ArrayList<Shape>();
 
+        out.println("Start");
+
         for(int i=0; i<game.board.fields.length; i++)
         {
             for(int j=0; j<game.board.fields[0].length; j++)
@@ -77,7 +79,7 @@ public class Player implements Runnable{
 
                 if(data.equals("START GAME"))
                 {
-                    System.out.println(data);
+                    //System.out.println(data);
                     String gameName=in.nextLine();
                     System.out.println(gameName);
                     String playerAm=in.nextLine();
