@@ -78,6 +78,7 @@ public class Menu extends JFrame implements ActionListener{
             if(amofplayers.equals(source)){
                 switch (selected){
                     case "2":
+
                         players = 2;
                         break;
                     case "4":
@@ -96,6 +97,10 @@ public class Menu extends JFrame implements ActionListener{
 
 
             } else if(button.equals(source)){
+                System.out.println("START GAME");
+                out.println("START GAME");
+                out.println("Chinese Checkers");
+                out.println("2");
                 play(players, gamename);
             }
         }catch (Exception ex){

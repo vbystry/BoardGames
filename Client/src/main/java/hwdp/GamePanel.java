@@ -2,6 +2,8 @@ package hwdp;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 import java.io.PrintWriter;
@@ -9,7 +11,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GamePanel extends JPanel implements Runnable{
+public class GamePanel extends JPanel implements Runnable, ActionListener {
     public int turnflag;
     public ArrayList<Shape> board;
     public ArrayList<Shape> todraw;
@@ -49,7 +51,14 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+
+    @Override
     public void run() {
 
     }
+
+
 }
