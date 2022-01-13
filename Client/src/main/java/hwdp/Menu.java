@@ -9,6 +9,7 @@ public class Menu extends JFrame implements ActionListener{
     private final JComboBox<String> choiceofgame;
     private final JComboBox<String> amofplayers;
     private final JButton button;
+    protected GameFrame frame;
     private int players;
     private String gamename;
     private JLabel message;
@@ -56,15 +57,13 @@ public class Menu extends JFrame implements ActionListener{
                         players = 6;
                 }
             } else if(choiceofgame.equals(source)){
-                switch (selected){
-                    case "Chinese Checkers":
+
+
                         gamename = selected;
 
-                        break;
 
-                    default:
-                        break;
-                }
+
+
 
             } else if(button.equals(source)){
                 play(players, gamename);
@@ -75,7 +74,7 @@ public class Menu extends JFrame implements ActionListener{
 
     }
     private void play(int players, String game){
-        GameFrame frame = new GameFrame(game);
+        frame = new GameFrame(game);
 
     }
 }

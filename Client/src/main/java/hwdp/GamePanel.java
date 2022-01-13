@@ -4,11 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
+import java.net.Socket;
+import java.util.Scanner;
 
 public class GamePanel extends JPanel {
     public int turnflag;
     public Shape[][] board;
     public Shape[][] todraw;
+    private Socket socket;
+    private Scanner scanner;
 
     public GamePanel(){
 
