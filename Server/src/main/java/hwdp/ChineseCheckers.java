@@ -314,7 +314,7 @@ public class ChineseCheckers extends Game{
 
     @Override
     public void run() {
-        while(playerAm>players.size())  {}
+         while(playerAm>players.size())  {}
 
         for(Player player : players){
             player.startGame(this);
