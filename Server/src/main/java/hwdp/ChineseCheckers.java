@@ -17,19 +17,32 @@ public class ChineseCheckers extends Game{
     }
 
     @Override
-    protected void Round() {
-
+    protected int Round() {
+        int PlayerNo=0;
+        while(Queue(PlayerNo)>0)
+        {
+            PlayerNo++;
+            PlayerNo%=this.playerAm;
+        }
+        return 1;
     }
 
     @Override
-    protected void Queue(int PlayerNo) {
+    protected int Queue(int PlayerNo) {
         int queueFlag=1;
         while(queueFlag>0)
         {
             //oczekiwanie i pobieranie e od klienta
-            //MouseEvent e = new MouseEvent();
-            //queueFlag=HandleClickInfo(e, PlayerNo);
+            MouseEvent e = players.get(PlayerNo).getClickInfo();
+            if(HandleClickInfo(e, PlayerNo)>0)  {players.get(PlayerNo).sendData(this.getPlayerData());}
+            if(checkWinnig(PlayerNo))   {return 0;}
         }
+        return 1;
+    }
+
+    private boolean checkWinnig(int PlayerNo){
+        //Do zaimplementowania
+        return false;
     }
 
     @Override
@@ -297,5 +310,23 @@ public class ChineseCheckers extends Game{
         converted[1] = inity + coords[1] * mycdiameter;
 
         return converted;
+    }
+
+    @Override
+    public void run() {
+        while(playerAm>players.size())  {}
+
+        for(Player player : players){
+            player.startGame(this);
+            player.sendData(getPlayerData());
+        }
+
+        int playerNo=0;
+
+        Round();
+
+        for(Player player : players){
+            player.setGameOver(true);
+        }
     }
 }
