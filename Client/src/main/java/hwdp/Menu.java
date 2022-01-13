@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
 
 public class Menu extends JFrame implements ActionListener{
     private final JComboBox<String> choiceofgame;
@@ -13,31 +17,57 @@ public class Menu extends JFrame implements ActionListener{
     private int players;
     private String gamename;
     private JLabel message;
-    protected Menu(){
+    String serverAddress;
+    private Scanner in;
+    private PrintWriter out;
+
+
+    private void run() throws IOException {
+        try {
+            var socket = new Socket(serverAddress, 59001);
+            in = new Scanner(socket.getInputStream());
+            out = new PrintWriter(socket.getOutputStream(), true);
+
+        } catch (Exception e){
+
+        }
+    }
+    protected Menu(String serverAddress){
         super("Menu");
-        setSize(300, 150);
-        choiceofgame = new JComboBox<>();
-        message = new JLabel();
-        message.setText("Witaj w menu wyboru gier, wybierz gre, ilosc graczy, a nstepnie prazycisk Play");
-        choiceofgame.addItem("Chinese Checkers");
-        choiceofgame.addItem("Other game in the future");
-        amofplayers = new JComboBox<String>();
-        amofplayers.addItem("2");
-        amofplayers.addItem("4");
-        amofplayers.addItem("6");
-        button = new JButton("Play");
-        button.addActionListener(this);
-        choiceofgame.addActionListener(this);
-        amofplayers.addActionListener(this);
+        this.serverAddress=serverAddress;
 
+        try {
+            var socket = new Socket(serverAddress, 59001);
+            in = new Scanner(socket.getInputStream());
+            out = new PrintWriter(socket.getOutputStream(), true);
 
+        } catch (Exception e){
 
-        add(button);
-        add(choiceofgame);
-        add(amofplayers);
-        setLayout(new FlowLayout());
-        setDefaultCloseOperation(3);
-        setVisible(true);
+        }
+        finally {
+            setSize(300, 150);
+            choiceofgame = new JComboBox<>();
+            message = new JLabel();
+            message.setText("Witaj w menu wyboru gier, wybierz gre, ilosc graczy, a nstepnie prazycisk Play");
+            choiceofgame.addItem("Chinese Checkers");
+            choiceofgame.addItem("Other game in the future");
+            amofplayers = new JComboBox<String>();
+            amofplayers.addItem("2");
+            amofplayers.addItem("4");
+            amofplayers.addItem("6");
+            button = new JButton("Play");
+            button.addActionListener(this);
+            choiceofgame.addActionListener(this);
+            amofplayers.addActionListener(this);
+
+            add(button);
+            add(choiceofgame);
+            add(amofplayers);
+            setLayout(new FlowLayout());
+            setDefaultCloseOperation(3);
+            setVisible(true);
+        }
+
     }
 
     public void actionPerformed(ActionEvent e){
@@ -74,7 +104,7 @@ public class Menu extends JFrame implements ActionListener{
 
     }
     private void play(int players, String game){
-        frame = new GameFrame(game);
+        frame = new GameFrame(game, in, out);
 
     }
 }

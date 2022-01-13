@@ -4,18 +4,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
+import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel implements Runnable{
     public int turnflag;
-    public Shape[][] board;
-    public Shape[][] todraw;
-    private Socket socket;
+    public ArrayList<Shape> board;
+    public ArrayList<Shape> todraw;
+    private Scanner in;
+    private PrintWriter out;
     private Scanner scanner;
 
-    public GamePanel(){
-
+    public GamePanel(Scanner in, PrintWriter out){
+        this.in=in;
+        this.out=out;
     }
     public Shape[][] readBoardFromBuffer(){
 
@@ -44,4 +48,8 @@ public class GamePanel extends JPanel {
 
     }
 
+    @Override
+    public void run() {
+
+    }
 }
