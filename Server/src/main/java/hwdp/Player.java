@@ -62,6 +62,10 @@ public class Player implements Runnable{
         out.println("Your turn");
     }
 
+    public void endRound(){
+        out.println("Round over");
+    }
+
     public void run(){
         try{
             in = new Scanner(socket.getInputStream());
