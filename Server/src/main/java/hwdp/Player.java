@@ -90,8 +90,12 @@ public class Player implements Runnable{
             out = new PrintWriter(socket.getOutputStream(), true);
 
             while(true){
-                String data;
+                String data="";
+                while(!in.hasNextLine()){
+                    data="";
+                }
                 data=in.nextLine();
+                System.out.println(data);
 
                 if(data.equals("START GAME"))
                 {

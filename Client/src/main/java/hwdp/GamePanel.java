@@ -30,19 +30,29 @@ public class GamePanel extends JPanel implements Runnable {
 
         String data="";
 
-        while(true) {
+        boolean flag=true;
+
+        while(flag) {
 
             while (!in.hasNextLine()) {
 
             }
             data = in.nextLine();
-            if(data.equals("end"))  {break;}
-            //board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
-            board.add(App.decodeFigure(data));
+            if(data.equals("end"))  {
+                flag=false;
+                System.out.println("end");
+            }
+            else {
+                //System.out.println(data);
+                //board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
+                board.add(App.decodeFigure(data));
+            }
         }
 
         myMouseAdapter A= new myMouseAdapter();
         addMouseListener(A);
+
+
     }
     public Shape[][] readBoardFromBuffer(){
         return null;
@@ -94,21 +104,28 @@ public class GamePanel extends JPanel implements Runnable {
     private class myMouseAdapter extends MouseAdapter{
         @Override
         public void mousePressed(MouseEvent event){
+            System.out.println("click");
             sendClickInfo(event);
         }
     }
 
     @Override
     public void run() {
+        System.out.println("run");
         while(!gameOver)
         {
             if(in.hasNextLine()){
+                System.out.println("new data");
                 String data = in.nextLine();
                 //String data2= in.nextLine();
                 System.out.println(data);
 
 
-                if(data.equals("Your turn"))        {this.turnflag=true;}
+                if(data.equals("Your turn"))
+                {
+                    this.turnflag=true;
+                    System.out.println("turnFlag");
+                }
                 else if(data.equals("Turn over"))   {this.turnflag=false;}
                 else
                 {

@@ -16,6 +16,7 @@ public class GameFrame extends JFrame {
         setSize(1300, 900);
         panel = new GamePanel(in, out);
         add(panel);
+        new Thread((Runnable) panel).start();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

@@ -240,14 +240,14 @@ public class ChineseCheckers extends Game{
     public void addPlayer(Player player){       //tu
         this.players.add(player);
         System.out.println("Dodano gracza");
-        if(this.players.size()==(this.playerAm))        //to powinno byc w run
+        /*if(this.players.size()==(this.playerAm))        //to powinno byc w run ale sie cos pierdoli
         {
             for(Player P : this.players){
                 System.out.println("wystartowało u nowego huja");
-                P.startGame(this);
+                P.startGame(this);      //problem z synchronizacja
             }
             this.startFlag=true;
-        }
+        }*/
     }
 
     @Override
@@ -338,22 +338,19 @@ public class ChineseCheckers extends Game{
     @Override
     public void run() {
         System.out.println("rozpoczynam run");
-        while(true)
+        while(this.playerAm>players.size())
         {
-             //System.out.println(this.playerAm + " , " + players.size());
-             if(this.playerAm==players.size())
-             {
-                 break;
-             }
+            System.out.println(playerAm + " , " + players.size());      //nie wiem jak zrobic pusta petle XD
+
         }
 
         //while(!startFlag){}
 
-        //for(Player player : players){
-         //   player.startGame(this);
-         //   //player.sendData(getPlayerData());
-         //   System.out.println("kolejny gracz ma odpalone");
-        //}
+        for(Player player : players){
+            player.startGame(this);
+         //   player.sendData(getPlayerData());
+            System.out.println("kolejny gracz ma odpalone");
+        }
 
         int playerNo=0;
         System.out.println("startujemy rundke");

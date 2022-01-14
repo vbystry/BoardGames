@@ -55,4 +55,7 @@ public abstract class Game implements Runnable{
     public static double[] covertCoords(int[] coords, String type){ //chyba tez to lepiej wywalic (jak enum)
         return new double[0];
     }
+
+    @Override
+    public void run(){}
 }
