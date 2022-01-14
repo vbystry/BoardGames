@@ -1,9 +1,12 @@
 package hwdp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Rectangle2D;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.AbstractList;
@@ -65,7 +68,7 @@ public class Player implements Runnable{
 
         String data=jsonb.toJson(Lboard);
 
-        out.println(data);
+       out.println(data);
 
         System.out.println(data);
 
