@@ -37,15 +37,6 @@ public class Player implements Runnable{
     }
 
     public int startGame(Game game){
-        ArrayList Lboard;
-        if(game instanceof ChineseCheckers)
-        {
-            Lboard = new ArrayList<MyShape>();
-        }
-        else
-        {
-            Lboard = new ArrayList<Shape>();
-        }
 
         System.out.println("Started");
 
@@ -59,18 +50,18 @@ public class Player implements Runnable{
                 //System.out.println(j);
                 if(game.board.fields[i][j]!=null)
                 {
-                    Lboard.add(game.board.fields[i][j].shape);
+                    out.println(App.codeFigure(game.board.fields[i][j].shape));
                 }
 
             }
         }
 
 
-        String data=jsonb.toJson(Lboard);
+        //String data=jsonb.toJson(Lboard);
 
-       out.println(data);
+        out.println("end");
 
-        System.out.println(data);
+        //System.out.println(data);
 
         return 1;
     }

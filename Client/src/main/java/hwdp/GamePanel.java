@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class GamePanel extends JPanel implements ActionListener, Runnable {
     private boolean turnflag = false;
     private boolean gameOver = false;
-    public ArrayList<Shape> board;
+    public ArrayList<Shape> board= new ArrayList<>();
     public ArrayList<Shape> todraw;
     private Scanner in;
     private PrintWriter out;
@@ -27,14 +27,17 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
         this.in=in;
         this.out=out;
 
-        String data;
+        String data="";
 
-        while(!in.hasNextLine())
-        {
+        while(!data.equals("end")) {
 
+            while (!in.hasNextLine()) {
+
+            }
+            data = in.nextLine();
+            //board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
+            board.add(App.decodeFigure(data));
         }
-        data=in.nextLine();
-        board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
     }
     public Shape[][] readBoardFromBuffer(){
         return null;
