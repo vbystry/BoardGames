@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,7 +34,15 @@ public class Player implements Runnable{
     }
 
     public int startGame(Game game){
-        ArrayList<Shape> Lboard = new ArrayList<Shape>();
+        ArrayList Lboard;
+        if(game instanceof ChineseCheckers)
+        {
+            Lboard = new ArrayList<MyShape>();
+        }
+        else
+        {
+            Lboard = new ArrayList<Shape>();
+        }
 
         System.out.println("Started");
 
@@ -52,6 +61,7 @@ public class Player implements Runnable{
 
             }
         }
+
 
         String data=jsonb.toJson(Lboard);
 

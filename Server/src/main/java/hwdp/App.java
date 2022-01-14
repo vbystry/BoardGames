@@ -1,5 +1,6 @@
 package hwdp;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -49,6 +50,16 @@ public class App
                 }
         }
         return 1;
+    }
+
+    public static String codeFigure(Shape shape){
+        if(shape instanceof MyShape){
+            return "MyShape" + "$"+ String.valueOf(((MyShape) shape).x) + "$"+ String.valueOf(((MyShape) shape).y)+ "$"+ String.valueOf(((MyShape) shape).width)+ "$" +String.valueOf(((MyShape) shape).height) +"$";
+        }
+        else
+        {
+            return "";
+        }
     }
 
     public static void main(String[] args) throws Exception {
