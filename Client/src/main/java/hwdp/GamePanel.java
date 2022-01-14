@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 import java.io.PrintWriter;
@@ -13,7 +14,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GamePanel extends JPanel implements ActionListener, Runnable {
+public class GamePanel extends JPanel implements Runnable {
     private boolean turnflag = false;
     private boolean gameOver = false;
     public ArrayList<Shape> board= new ArrayList<>();
@@ -29,15 +30,19 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
 
         String data="";
 
-        while(!data.equals("end")) {
+        while(true) {
 
             while (!in.hasNextLine()) {
 
             }
             data = in.nextLine();
+            if(data.equals("end"))  {break;}
             //board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
             board.add(App.decodeFigure(data));
         }
+
+        myMouseAdapter A= new myMouseAdapter();
+        addMouseListener(A);
     }
     public Shape[][] readBoardFromBuffer(){
         return null;
@@ -52,10 +57,16 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
         //Rectangle2D rec = new Rectangle2D.Double(100,100,20,50);
         //g2d.fill(rec);
 
-        for(Shape shape : todraw)
+        for(Shape shape : board)
         {
             g2d.fill(shape);
         }
+
+
+        //for(Shape shape : todraw)
+        //{
+        //    g2d.fill(shape);
+        //}
 
 
     }
@@ -73,11 +84,15 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
+
+
+    private class myMouseAdapter extends MouseAdapter{
+        @Override
+        public void mousePressed(MouseEvent event){
+            sendClickInfo(event);
+        }
     }
-
 
     @Override
     public void run() {
@@ -92,7 +107,7 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
             {
                 System.out.println(data);
                 System.out.println(data2);
-                todraw = jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
+                //todraw = jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
             }
         }
     }

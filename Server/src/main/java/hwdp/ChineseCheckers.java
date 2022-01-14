@@ -36,6 +36,7 @@ public class ChineseCheckers extends Game{
     @Override
     protected int Queue(int PlayerNo) {
         int queueFlag=1;
+        this.players.get(PlayerNo).startRound();
         while(queueFlag>0)
         {
             //oczekiwanie i pobieranie e od klienta
@@ -43,6 +44,7 @@ public class ChineseCheckers extends Game{
             if(HandleClickInfo(e, PlayerNo)>0)  {players.get(PlayerNo).sendData(this.getPlayerData());}
             if(checkWinnig(PlayerNo))   {return 0;}
         }
+        this.players.get(PlayerNo).endRound();
         return 1;
     }
 

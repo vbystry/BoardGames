@@ -33,7 +33,7 @@ public class App
                     //checking valid playerAm
                     if(playersNum==2 || playersNum==3 || playersNum==6){
                         for(Game game : this.games){
-                            if(game.playerAm==playersNum && game instanceof ChineseCheckers)
+                            if(game.playerAm==playersNum && game instanceof ChineseCheckers)    //spr czy gra ruszyla
                             {
                                 game.addPlayer(caller);
                                 return 1;
@@ -54,7 +54,7 @@ public class App
 
     public static String codeFigure(Shape shape){
         if(shape instanceof MyShape){
-            return "MyShape" + "$"+ String.valueOf(((MyShape) shape).x) + "$"+ String.valueOf(((MyShape) shape).y)+ "$"+ String.valueOf(((MyShape) shape).width)+ "$" +String.valueOf(((MyShape) shape).height) +"$";
+            return "MyShape" + "$"+ String.valueOf(((MyShape) shape).x) + "$"+ String.valueOf(((MyShape) shape).y)+ "$"+ String.valueOf(((MyShape) shape).width)+ "$" +String.valueOf(((MyShape) shape).height) +"$" + ((MyShape) shape).color.toString()+ "$";
         }
         else
         {

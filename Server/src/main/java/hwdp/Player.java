@@ -33,6 +33,7 @@ public class Player implements Runnable{
     public MouseEvent getClickInfo(){
         String event = in.nextLine();
         MouseEvent e = jsonb.fromJson(event, MouseEvent.class);
+        System.out.println(e);
         return e;
     }
 
