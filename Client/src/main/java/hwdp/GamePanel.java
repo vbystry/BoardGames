@@ -17,7 +17,7 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
     private boolean turnflag = false;
     private boolean gameOver = false;
     public ArrayList<Shape> board= new ArrayList<>();
-    public ArrayList<Shape> todraw;
+    public ArrayList<Shape> todraw = new ArrayList<>();
     private Scanner in;
     private PrintWriter out;
     private Scanner scanner;
@@ -54,6 +54,9 @@ public class GamePanel extends JPanel implements ActionListener, Runnable {
 
         for(Shape shape : todraw)
         {
+            g2d.fill(shape);
+        }
+        for(Shape shape : board){
             g2d.fill(shape);
         }
 
