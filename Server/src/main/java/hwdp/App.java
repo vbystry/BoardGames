@@ -42,6 +42,7 @@ public class App
                         System.out.println("Dodano gre");
                         this.games.add(new ChineseCheckers(playersNum));
                         this.games.get(this.games.size()-1).addPlayer(caller);
+                        this.games.get(this.games.size()-1).run();
                     }
                 }
                 catch(Exception e){

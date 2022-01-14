@@ -11,6 +11,7 @@ public class ChineseCheckers extends Game{
     //private static double ix, iy;
     final static private int mycdiameter = 50;
     final static private int standarddis = 10;
+    private boolean startFlag=false;
 
     ChineseCheckers(int playerAm){      //nie wiem czy tu nie bedzie problem, tzn czy w super beda sie wywolwyaly metody nadpisane czy nie
 
@@ -37,6 +38,7 @@ public class ChineseCheckers extends Game{
     protected int Queue(int PlayerNo) {
         int queueFlag=1;
         this.players.get(PlayerNo).startRound();
+        System.out.println("Powinno wystartowac u: " + (PlayerNo+1));
         while(queueFlag>0)
         {
             //oczekiwanie i pobieranie e od klienta
@@ -238,12 +240,13 @@ public class ChineseCheckers extends Game{
     public void addPlayer(Player player){       //tu
         this.players.add(player);
         System.out.println("Dodano gracza");
-        if(this.players.size()==(this.playerAm))
+        if(this.players.size()==(this.playerAm))        //to powinno byc w run
         {
             for(Player P : this.players){
                 System.out.println("wystartowało u nowego huja");
                 P.startGame(this);
             }
+            this.startFlag=true;
         }
     }
 
@@ -334,14 +337,26 @@ public class ChineseCheckers extends Game{
 
     @Override
     public void run() {
-         while(playerAm>players.size())  {}
-
-        for(Player player : players){
-            player.startGame(this);
-            player.sendData(getPlayerData());
+        System.out.println("rozpoczynam run");
+        while(true)
+        {
+             //System.out.println(this.playerAm + " , " + players.size());
+             if(this.playerAm==players.size())
+             {
+                 break;
+             }
         }
 
+        //while(!startFlag){}
+
+        //for(Player player : players){
+         //   player.startGame(this);
+         //   //player.sendData(getPlayerData());
+         //   System.out.println("kolejny gracz ma odpalone");
+        //}
+
         int playerNo=0;
+        System.out.println("startujemy rundke");
         Round();
 
         for(Player player : players){

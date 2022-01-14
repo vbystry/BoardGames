@@ -78,6 +78,7 @@ public class GamePanel extends JPanel implements Runnable {
         {
             String event = jsonb.toJson(e);
             out.println(event);
+            System.out.println(event);
         }
     }
     @Override
@@ -101,17 +102,22 @@ public class GamePanel extends JPanel implements Runnable {
     public void run() {
         while(!gameOver)
         {
-            String data = in.nextLine();
-            String data2= in.nextLine();
-
-            if(data.equals("Your turn"))        {this.turnflag=true;}
-            else if(data.equals("Turn over"))   {this.turnflag=false;}
-            else
-            {
+            if(in.hasNextLine()){
+                String data = in.nextLine();
+                //String data2= in.nextLine();
                 System.out.println(data);
-                System.out.println(data2);
-                //todraw = jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
+
+
+                if(data.equals("Your turn"))        {this.turnflag=true;}
+                else if(data.equals("Turn over"))   {this.turnflag=false;}
+                else
+                {
+                    System.out.println(data);
+                    //System.out.println(data2);
+                    //todraw = jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
+                }
             }
+
         }
     }
 }

@@ -77,6 +77,7 @@ public class Player implements Runnable{
 
     public void startRound(){
         out.println("Your turn");
+        System.out.println("Round started");
     }
 
     public void endRound(){
