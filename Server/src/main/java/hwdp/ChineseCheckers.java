@@ -323,7 +323,7 @@ public class ChineseCheckers extends Game{
         if(coords[0] % 2 == 0){
             converted[0] = initx + (coords[0]/2) * (mycdiameter + standarddis);
         } else {
-            converted[0] = initx - ((mycdiameter + standarddis) / 2) + (coords[0]/2) * (mycdiameter + standarddis);
+            converted[0] = initx - ((mycdiameter + standarddis) / 2) + (coords[0]/2) * (mycdiameter + standarddis) + 60;
         }
 
         converted[1] = inity + coords[1] * mycdiameter;
