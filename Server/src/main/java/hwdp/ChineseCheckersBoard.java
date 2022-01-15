@@ -24,7 +24,7 @@ public class ChineseCheckersBoard extends Board{
         iy = inity;
         for(int i = 0; i < 17; i++){
             for(int j = 0; j < 25; j++){
-                if(j % 2 == 0) {
+                if((i%2 ==0 && j%2==0) || i%2 == 1 && j%2 == 1) {
                     int[] position = {j, i};
                     fields[j][i] = new ChineseCheckersField(new MyShape(this.convertCoordX(j, i), this.convertCoordY(i), mycdiameter, mycdiameter), position);
                     //fields[j][i].shape = new MyShape(this.convertCoordX(j, i), this.convertCoordY(i), mycdiameter, mycdiameter);
@@ -43,70 +43,98 @@ public class ChineseCheckersBoard extends Board{
         }
         //usuwanie czesci planszy
         //lewy gorny rog
-        for(int i = 0; i < 2; i++){
-            for(int j = 0; j < 12; j += 2){
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 12; j += 2) {
                 fields[j][i] = null;
             }
         }
-        for(int i = 2; i < 4; i++){
-            for(int j = 0; j < 10; j += 2){
+        for(int i = 1; i < 11; i+=2){
+            fields[i][1] = null;
+        }
+        for(int i = 1; i < 9; i+=2){
+            fields[i][3] = null;
+        }
+        for (int i = 2; i < 4; i++) {
+            for (int j = 0; j < 10; j += 2) {
                 fields[j][i] = null;
             }
         }
         //lewy dolny rog
-        for(int i = 13; i < 15; i++){
-            for(int j = 0; j < 10; j += 2){
+        for (int i = 13; i < 15; i++) {
+            for (int j = 0; j < 10; j += 2) {
                 fields[j][i] = null;
             }
         }
-        for(int i = 15; i < 17; i++){
-            for(int j = 0; j < 12; j += 2){
+        for(int i = 1; i < 11; i+=2){
+            fields[i][15] = null;
+        }
+        for(int i = 1; i < 9; i+=2){
+            fields[i][13] = null;
+        }
+        for (int i = 15; i < 17; i++) {
+            for (int j = 0; j < 12; j += 2) {
                 fields[j][i] = null;
             }
         }
         //prawy gorny rog
-        for(int i = 14; i < 25; i += 2){
+        for (int i = 14; i < 25; i += 2) {
             fields[i][0] = null;
         }
-        for(int i = 16; i < 25; i += 2){
+        for (int i = 16; i < 25; i += 2) {
             fields[i][1] = null;
         }
-        for(int i = 16; i < 25; i += 2){
+        for (int i = 16; i < 25; i += 2) {
             fields[i][2] = null;
         }
-        for(int i = 18; i < 25; i += 2){
+        for (int i = 18; i < 25; i += 2) {
+            fields[i][3] = null;
+        }
+        for(int i = 15; i < 25; i+=2){
+            fields[i][1] = null;
+        }
+        for(int i = 17; i < 25; i+=2){
             fields[i][3] = null;
         }
         //prawy dolny rog
-        for(int i = 14; i < 25; i += 2){
+        for (int i = 14; i < 25; i += 2) {
             fields[i][16] = null;
         }
-        for(int i = 16; i < 25; i += 2){
+        for (int i = 16; i < 25; i += 2) {
             fields[i][15] = null;
         }
-        for(int i = 16; i < 25; i += 2){
+        for (int i = 16; i < 25; i += 2) {
             fields[i][14] = null;
         }
-        for(int i = 18; i < 25; i += 2){
+        for (int i = 18; i < 25; i += 2) {
             fields[i][13] = null;
+        }
+        for(int i = 17; i < 25; i+=2){
+            fields[i][13] = null;
+        }
+        for(int i = 15; i < 25; i+=2){
+            fields[i][15] = null;
         }
         //usuniecie lewej strony
         int i = 5;
-        while(i < 12){
+        while (i < 12) {
             fields[0][i] = null;
             i++;
         }
         i = 7;
-        while(i < 10){
+        while (i < 10) {
             fields[2][i] = null;
             i++;
         }
+        fields[1][7] = null;
+        fields[1][9] = null;
         //usuniecie prawej strony
         i = 6;
-        while(i < 11){
+        while (i < 11) {
             fields[24][i] = null;
             i++;
         }
+        fields[23][7] = null;
+        fields[23][9] = null;
         fields[22][8] = null;
 
         //System.out.println(fields[0][0].toString());

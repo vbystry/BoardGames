@@ -91,12 +91,8 @@ public class ChineseCheckers extends Game{
                             e.printStackTrace();
                         }
                     }
-                    if(y == 0 || y == 2){
-                        right += 2;
-                    }
-                    if(y == 1){
-                        left -= 2;
-                    }
+                    left--;
+                    right++;
                 }
 
                 //south corner
@@ -116,12 +112,8 @@ public class ChineseCheckers extends Game{
                             e.printStackTrace();
                         }
                     }
-                    if(y == 16 || y == 14){
-                        right += 2;
-                    }
-                    if(y == 15){
-                        left -= 2;
-                    }
+                    left--;
+                    right++;
                 }
 
         }
@@ -129,7 +121,7 @@ public class ChineseCheckers extends Game{
         if(numofplayers == 4 || numofplayers == 6){
             //north east corner
 
-            mid = 22;
+            mid = 21;
             left = mid;
             right = mid;
             for (int y = 9; y < 13; y++) {
@@ -145,17 +137,13 @@ public class ChineseCheckers extends Game{
                         e.printStackTrace();
                     }
                 }
-                if(y == 9 || y == 11){
-                    left -= 2;
-                }
-                if(y == 10){
-                    right += 2;
-                }
+                left--;
+                right++;
             }
 
             //south west corner
 
-            mid = 4;
+            mid = 3;
             left = mid;
             right = mid;
             for (int y = 9; y < 13; y++) {
@@ -173,12 +161,8 @@ public class ChineseCheckers extends Game{
                     }
 
                 }
-                if (y == 9 || y == 11) {
-                    left -= 2;
-                }
-                if (y == 10) {
-                    right += 2;
-                }
+                left--;
+                right++;
 
             }
 
@@ -187,7 +171,7 @@ public class ChineseCheckers extends Game{
 
             //south east corner
 
-            mid = 22;
+            mid = 21;
             left = mid;
             right = mid;
             for (int y = 7; y >= 4; y--) {
@@ -203,17 +187,13 @@ public class ChineseCheckers extends Game{
                         e.printStackTrace();
                     }
                 }
-                if(y == 7 || y == 5){
-                    left -= 2;
-                }
-                if(y == 6){
-                    right += 2;
-                }
+                left--;
+                right++;
             }
 
             //north west corner
 
-            mid = 4;
+            mid = 3;
             left = mid;
             right = mid;
             for (int y = 7; y >= 4; y--) {
@@ -229,12 +209,8 @@ public class ChineseCheckers extends Game{
                         e.printStackTrace();
                     }
                 }
-                if(y == 7 || y == 5){
-                    left -= 2;
-                }
-                if(y == 6){
-                    right += 2;
-                }
+                left--;
+                right++;
             }
         }
 
