@@ -34,6 +34,14 @@ public class ChineseCheckersPawn extends Pawn{
         this.shape = new MyShape(convertedPosition.clone()[0], convertedPosition.clone()[1], pawndiameter, pawndiameter);    //ej jak ustawic status na active? xd
     }
 
+    @Override
+    public void move(int[] position){
+        this.position=position.clone();
+
+        ((MyShape) shape).x+=this.position[0];
+        ((MyShape) shape).y+=this.position[1];
+    }
+
     public void setStatus(status S) {
         this.Status=S;
     }

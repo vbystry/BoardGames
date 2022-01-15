@@ -86,9 +86,39 @@ public class GamePanel extends JPanel implements Runnable {
                 todraw.add(shape);
             }
         }
+        this.repaint();
         //return null;
     }
+
+    public void readToDrawFromBuffer(String prevData){
+        todraw.clear();
+        todraw.add(App.decodeFigure(prevData));
+        boolean flag=true;
+        String data="";
+
+        while(flag) {
+
+            while (!in.hasNextLine()) {
+
+            }
+            data = in.nextLine();
+            if(data.equals("end"))  {
+                flag=false;
+                System.out.println("end");
+            }
+            else {
+                //System.out.println(data);
+                //board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
+                Shape shape= App.decodeFigure(data);
+                todraw.add(shape);
+            }
+        }
+        this.repaint();
+        //return null;
+    }
+
     private void drawGame(Graphics g){
+        //System.out.println("rysujemy");
         Graphics2D g2d = (Graphics2D) g;
         g2d.setPaint(new Color(20,50,70));
         //Rectangle2D rec = new Rectangle2D.Double(100,100,20,50);
@@ -103,7 +133,6 @@ public class GamePanel extends JPanel implements Runnable {
         //}
 
         g2d.setPaint(Color.GREEN);
-
         for(Shape shape : todraw)
         {
             g2d.fill(shape);
@@ -169,7 +198,8 @@ public class GamePanel extends JPanel implements Runnable {
                 {
                     //System.out.println(data);
                     try{
-                        todraw.add(App.decodeFigure(data));
+                        //todraw.add(App.decodeFigure(data));
+                        readToDrawFromBuffer(data);
                     }
                     catch(Exception e){
                         System.out.println(e);
@@ -178,6 +208,7 @@ public class GamePanel extends JPanel implements Runnable {
                     //System.out.println(data2);
                     //todraw = jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
                 }
+                repaint();
             }
 
         }

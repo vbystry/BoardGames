@@ -52,6 +52,7 @@ public class ChineseCheckers extends Game{
                 for(Shape shape : playerData){
                     players.get(PlayerNo).sendData(App.codeFigure(shape));
                 }
+                players.get(PlayerNo).sendData("end");
                 //this.getPlayerData());
             }
             if(checkWinnig(PlayerNo))   {return 0;}

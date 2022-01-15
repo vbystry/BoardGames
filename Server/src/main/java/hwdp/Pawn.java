@@ -28,7 +28,7 @@ public abstract class Pawn {
      * @param position
      */
     public void move(int[] position){
-        this.position=position;
+        this.position=position.clone();
     }
 
     /**

@@ -166,12 +166,12 @@ public class ChineseCheckersBoard extends Board{
             xy[0]+=dx;
             xy[1]+=dy;
 
-            while(!out && xy[0]<24 && xy[1]<24 && this.fields[xy[0]][xy[1]] != null )
+            while(!out && xy[0]<24 && xy[1]<24 && xy[0]<0 && xy[1]<0 && this.fields[xy[0]][xy[1]] != null )
             {
                 if(counter==1) {
                     if (this.fields[xy[0]][xy[1]].getPawns().size() > 0) {
-                        pawnCounter = 0;
-                        out=true;
+                        pawnCounter = 1;
+                        //out=true;
                     }
                     //double[] coords = ChineseCheckers.covertCoords(xy, "Field")
                     else {
