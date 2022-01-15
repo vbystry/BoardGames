@@ -320,17 +320,17 @@ public class ChineseCheckers extends Game{
     private static double[] pawnCoordsConv(int[] coords){
         double[] converted = new double[2];
 
-        if(coords[0] % 2 == 0){
-            converted[1] = initx + (coords[0]/2) * (mycdiameter + standarddis)+3;   //zmienic +3 XD dalem losowo
+        if(coords[1] % 2 == 0){
+            converted[0] = initx + (coords[0]/2) * (mycdiameter + standarddis) + 8.5;   //zmienic +3 XD dalem losowo
         } else {
-            converted[1] = initx - ((mycdiameter + standarddis) / 2) + (coords[0]/2) * (mycdiameter + standarddis)+3;
+            converted[0] = (initx - ((mycdiameter + standarddis) / 2) + (coords[0]/2) * (mycdiameter + standarddis)) + 8.5;
         }
 
         /* Czy nie lepiej tak:
          * if(type.equals("Pawn") {converted[1]+=3;}
          */
 
-        converted[0] = inity + coords[1] * mycdiameter +3;
+        converted[1] = inity + coords[1] * mycdiameter + 8.5;
 
         return converted;
     }
