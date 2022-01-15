@@ -211,7 +211,7 @@ public class ChineseCheckersBoard extends Board{
         if(y % 2 == 0){
             return initx + (x/2) * (mycdiameter + standarddis);
         } else {
-            return initx - ((mycdiameter + standarddis) / 2) + (x/2) * (mycdiameter + standarddis);
+            return initx - ((mycdiameter + standarddis) / 2) + (x/2) * (mycdiameter + standarddis) + 60;
         }
     }
 
