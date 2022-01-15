@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -23,10 +24,12 @@ public class GamePanel extends JPanel implements Runnable {
     private PrintWriter out;
     private Scanner scanner;
     private Jsonb jsonb = JsonbBuilder.create();
+    private String gameName;
 
-    public GamePanel(Scanner in, PrintWriter out){
+    public GamePanel(Scanner in, PrintWriter out, String gameName){
         this.in=in;
         this.out=out;
+        this.gameName=gameName;
 
         String data="";
 
@@ -86,9 +89,19 @@ public class GamePanel extends JPanel implements Runnable {
     public void sendClickInfo(MouseEvent e){
         if(turnflag)
         {
-            String event = jsonb.toJson(e);
+            /*String event = jsonb.toJson(e);
             out.println(event);
-            System.out.println(event);
+            System.out.println(event);*/
+
+            //Jak bedzie czas zmienic to na factory method
+            switch(gameName){
+                case "ChineseCheckers":
+                    out.println(e.getPoint().getX());
+                    out.println(e.getPoint().getY());
+                    break;
+                default:
+                    break;
+            }
         }
     }
     @Override

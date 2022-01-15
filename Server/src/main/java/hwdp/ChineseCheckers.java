@@ -2,6 +2,7 @@ package hwdp;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public class ChineseCheckers extends Game{
@@ -42,8 +43,8 @@ public class ChineseCheckers extends Game{
         while(queueFlag>0)
         {
             //oczekiwanie i pobieranie e od klienta
-            MouseEvent e = players.get(PlayerNo).getClickInfo();
-            if(HandleClickInfo(e, PlayerNo)>0)  {players.get(PlayerNo).sendData(this.getPlayerData());}
+            Object[] clickCords = players.get(PlayerNo).getClickInfo(this);
+            if(HandleClickInfo(clickCords, PlayerNo)>0)  {players.get(PlayerNo).sendData(this.getPlayerData());}
             if(checkWinnig(PlayerNo))   {return 0;}
         }
         this.players.get(PlayerNo).endRound();
@@ -251,17 +252,19 @@ public class ChineseCheckers extends Game{
     }
 
     @Override
-    protected int HandleClickInfo(MouseEvent e, int playerNo) {   //1- kontynuujemy runde, 0- koniec
+    protected int HandleClickInfo(Object[] info, int playerNo) {   //1- kontynuujemy runde, 0- koniec
+        Point2D click=new Point2D.Double((double) info[0], (double) info[1]);
         if(activePawn != null)
         {
-            if(activePawn.shape.contains(e.getPoint()))
+
+            if(activePawn.shape.contains(click))
             {
                 return 0;
             }
             else
             {
                 for(Field possibleMove : actualPossibleMoves) {
-                    if (possibleMove.shape.contains(e.getPoint())) {
+                    if (possibleMove.shape.contains(click)) {
                         movePawn(activePawn, possibleMove.getPosition());
                         return 1;
                     }
@@ -273,7 +276,7 @@ public class ChineseCheckers extends Game{
         {
             for(Pawn P : pawns)
             {
-                if (P.shape.contains(e.getPoint()) && P.getPlayerNo() == playerNo) {
+                if (P.shape.contains(click) && P.getPlayerNo() == playerNo) {
                     activePawn = P;
                     return 1;
                 }

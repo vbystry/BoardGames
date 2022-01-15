@@ -48,7 +48,7 @@ public abstract class Game implements Runnable{
 
     protected abstract void createBoard();
 
-    protected abstract int HandleClickInfo(MouseEvent e, int playerNo);
+    protected abstract int HandleClickInfo(Object[] info, int playerNo);
 
     protected abstract void movePawn(Pawn P, int[] position);
 

@@ -14,7 +14,7 @@ public class GameFrame extends JFrame {
         super(title);
         setVisible(true);
         setSize(1300, 900);
-        panel = new GamePanel(in, out);
+        panel = new GamePanel(in, out, title);
         add(panel);
         new Thread((Runnable) panel).start();
 

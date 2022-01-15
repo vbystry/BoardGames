@@ -30,11 +30,28 @@ public class Player implements Runnable{
         this.master=master;
     }
 
-    public MouseEvent getClickInfo(){
-        String event = in.nextLine();
+    public Object[] getClickInfo(Game game){
+        /*String event = in.nextLine();
         MouseEvent e = jsonb.fromJson(event, MouseEvent.class);
-        System.out.println(e);
-        return e;
+        System.out.println(e);*/
+
+        if(game instanceof ChineseCheckers){
+            while(!in.hasNextLine());
+
+            double x = Double.parseDouble(in.nextLine());
+
+            while(!in.hasNextLine());
+
+            double y = Double.parseDouble(in.nextLine());
+
+            Object[] array = {x,y};
+
+            return array;
+        }
+        else
+        {
+            return new Object[0];
+        }
     }
 
     public int startGame(Game game){

@@ -11,6 +11,6 @@ public class Paneltest {
 
     Scanner scan = new Scanner(System.in);
     PrintWriter pr = new PrintWriter(System.out);
-    GamePanel panel = new GamePanel(scan, pr);
+    GamePanel panel = new GamePanel(scan, pr, "gowno");
     }
 }
