@@ -132,7 +132,7 @@ public class Player implements Runnable{
                     {
                         System.out.println("Ur waiting in a queue");
                         out.println("Ur waiting in a queue");
-                        while(!gameOver) {}
+                        while(!gameOver);
                         gameOver=false;
                     }
                     else{
@@ -145,7 +145,7 @@ public class Player implements Runnable{
 
         }
         catch (Exception e){
-
+            System.out.println(e);
         }
     }
 }

@@ -65,6 +65,7 @@ public class GamePanel extends JPanel implements Runnable {
         return null;
     }
     public void readToDrawFromBuffer(){
+        todraw.clear();
         boolean flag=true;
         String data="";
 
@@ -166,7 +167,14 @@ public class GamePanel extends JPanel implements Runnable {
                 else if(data.equals("Turn over"))   {this.turnflag=false;}
                 else
                 {
-                    System.out.println(data);
+                    //System.out.println(data);
+                    try{
+                        todraw.add(App.decodeFigure(data));
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+
                     //System.out.println(data2);
                     //todraw = jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
                 }

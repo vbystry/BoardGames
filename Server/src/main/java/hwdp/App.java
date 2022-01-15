@@ -33,7 +33,7 @@ public class App
                     //checking valid playerAm
                     if(playersNum==2 || playersNum==3 || playersNum==6){
                         for(Game game : this.games){
-                            if(game.playerAm==playersNum && game instanceof ChineseCheckers)    //spr czy gra ruszyla
+                            if(game.playerAm==playersNum && game instanceof ChineseCheckers && game.playerAm>game.players.size())    //spr czy gra ruszyla
                             {
                                 game.addPlayer(caller);
                                 return 1;

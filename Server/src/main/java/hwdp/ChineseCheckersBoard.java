@@ -154,13 +154,16 @@ public class ChineseCheckersBoard extends Board{
         ArrayList<Field> returnList = new ArrayList<Field>();
         for(int i=0; i<6; i++)
         {
-            int[] xy= pawn.getPosition();
+            int[] xy= pawn.getPosition().clone();
 
             int dx=pawn.possibleMoves[i][1];
             int dy=pawn.possibleMoves[i][0];
 
             int counter=1;  //uu licze od 1
             int pawnCounter=0;
+
+            xy[1]+=dx;
+            xy[0]+=dy;
 
             while(this.fields[xy[0]][xy[1]] != null )
             {
@@ -170,8 +173,9 @@ public class ChineseCheckersBoard extends Board{
                     {
                         pawnCounter=counter;
                     }
-                    //double[] coords = ChineseCheckers.covertCoords(xy, "Field");
+                    //double[] coords = ChineseCheckers.covertCoords(xy, "Field")
                     returnList.add(this.fields[xy[0]][xy[1]]);    //dopilnowac kolejnosc kordow, zmienic dlugosc i szerokosc
+                    System.out.println(App.codeFigure(returnList.get(returnList.size()-1).getShape()));
                 }
                 else
                 {
@@ -190,6 +194,7 @@ public class ChineseCheckersBoard extends Board{
                     {
                         //double[] coords = ChineseCheckers.covertCoords(xy, "Field");
                         returnList.add(this.fields[xy[0]][xy[1]]);
+                        System.out.println(App.codeFigure(returnList.get(returnList.size()-1).getShape()));
                     }
                 }
                 counter++;

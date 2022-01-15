@@ -10,7 +10,7 @@ public abstract class Game implements Runnable{
     Board board;
     ArrayList<Player> players;
     ArrayList<Pawn> pawns;
-    ArrayList<Field> actualPossibleMoves;
+    ArrayList<Field> actualPossibleMoves;// = new ArrayList<>();
     Pawn activePawn;
     int playerAm;
     private Jsonb jsonb = JsonbBuilder.create();
@@ -38,7 +38,7 @@ public abstract class Game implements Runnable{
         for(Pawn pawn : pawns){
             data.add(pawn.shape);
         }
-        if(this.actualPossibleMoves!=null)
+        if(this.actualPossibleMoves.size()>0)
         {
             for(Field possibleMove : actualPossibleMoves){
                 data.add(possibleMove.getShape());
