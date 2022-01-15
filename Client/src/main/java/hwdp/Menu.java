@@ -22,16 +22,17 @@ public class Menu extends JFrame implements ActionListener{
     private PrintWriter out;
 
 
-    private void run() throws IOException {
+    /*private void run() throws IOException {
         try {
             var socket = new Socket(serverAddress, 59001);
             in = new Scanner(socket.getInputStream());
             out = new PrintWriter(socket.getOutputStream(), true);
 
         } catch (Exception e){
+            e.printStackTrace();
 
         }
-    }
+    }*/
     protected Menu(String serverAddress){
         super("Menu");
         this.serverAddress=serverAddress;
@@ -42,6 +43,7 @@ public class Menu extends JFrame implements ActionListener{
             out = new PrintWriter(socket.getOutputStream(), true);
 
         } catch (Exception e){
+            e.printStackTrace();
 
         }
         finally {

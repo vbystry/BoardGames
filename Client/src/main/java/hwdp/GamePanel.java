@@ -29,7 +29,7 @@ public class GamePanel extends JPanel implements Runnable {
     public GamePanel(Scanner in, PrintWriter out, String gameName){
         this.in=in;
         this.out=out;
-        this.gameName=gameName;
+        this.gameName="Chinese Checkers";
 
         String data="";
 
@@ -95,9 +95,9 @@ public class GamePanel extends JPanel implements Runnable {
 
             //Jak bedzie czas zmienic to na factory method
             switch(gameName){
-                case "ChineseCheckers":
-                    out.println(e.getPoint().getX());
-                    out.println(e.getPoint().getY());
+                case "Chinese Checkers":
+                    out.println(e.getPoint().x);
+                    out.println(e.getPoint().y);
                     break;
                 default:
                     break;
