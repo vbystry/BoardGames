@@ -9,7 +9,7 @@ public class ChineseCheckersPawn extends Pawn{
     }
 
     public ChineseCheckersPawn(int[] position, double[] convertedPosition, int playerNo){
-        this.position= position;
+        this.position= position.clone();
         this.possibleMoves= new int[6][2];
         //zmienic x z y
         this.possibleMoves[0][1]=2;
@@ -31,7 +31,7 @@ public class ChineseCheckersPawn extends Pawn{
         this.possibleMoves[5][0]=-1;
 
         int pawndiameter = 30;
-        this.shape = new MyShape(convertedPosition[0], convertedPosition[1], pawndiameter, pawndiameter);    //ej jak ustawic status na active? xd
+        this.shape = new MyShape(convertedPosition.clone()[0], convertedPosition.clone()[1], pawndiameter, pawndiameter);    //ej jak ustawic status na active? xd
     }
 
     public void setStatus(status S) {

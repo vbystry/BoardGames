@@ -165,7 +165,7 @@ public class ChineseCheckersBoard extends Board{
             xy[0]+=dx;
             xy[1]+=dy;
 
-            while(this.fields[xy[0]][xy[1]] != null )
+            while(xy[0]<24 && xy[1]<24 && this.fields[xy[0]][xy[1]] != null )
             {
                 if(counter==1)
                 {
