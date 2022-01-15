@@ -48,7 +48,8 @@ public class GamePanel extends JPanel implements Runnable {
             else {
                 //System.out.println(data);
                 //board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
-                board.add(App.decodeFigure(data));
+                Shape shape=App.decodeFigure(data);
+                board.add(shape);
             }
         }
 
