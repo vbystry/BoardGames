@@ -305,7 +305,7 @@ public class ChineseCheckers extends Game{
         if(coords[1] % 2 == 0){
             converted[0] = initx + (coords[0]/2) * (mycdiameter + standarddis) + 8.5;   //zmienic +3 XD dalem losowo
         } else {
-            converted[0] = (initx - ((mycdiameter + standarddis) / 2) + (coords[0]/2) * (mycdiameter + standarddis)) + 8.5 + 60;
+            converted[0] = (initx - ((mycdiameter + standarddis) / 2) + (coords[0]/2) * (mycdiameter + standarddis)) + 8.5;
         }
 
         /* Czy nie lepiej tak:
