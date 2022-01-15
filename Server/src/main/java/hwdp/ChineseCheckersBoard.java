@@ -162,14 +162,14 @@ public class ChineseCheckersBoard extends Board{
             int counter=1;  //uu licze od 1
             int pawnCounter=0;
 
-            xy[1]+=dx;
-            xy[0]+=dy;
+            xy[0]+=dx;
+            xy[1]+=dy;
 
             while(this.fields[xy[0]][xy[1]] != null )
             {
                 if(counter==1)
                 {
-                    if(this.fields[xy[0]][xy[1]].getPawns() != null)
+                    if(this.fields[xy[0]][xy[1]].getPawns().size()>0)
                     {
                         pawnCounter=counter;
                     }
@@ -179,7 +179,7 @@ public class ChineseCheckersBoard extends Board{
                 }
                 else
                 {
-                    if(this.fields[xy[0]][xy[1]].getPawns() != null)
+                    if(this.fields[xy[0]][xy[1]].getPawns().size()>0)
                     {
                         if(pawnCounter==0)
                         {
@@ -198,8 +198,8 @@ public class ChineseCheckersBoard extends Board{
                     }
                 }
                 counter++;
-                xy[1]+=dx;
-                xy[0]+=dy;
+                xy[0]+=dx;
+                xy[1]+=dy;
             }
         }
         return returnList;
