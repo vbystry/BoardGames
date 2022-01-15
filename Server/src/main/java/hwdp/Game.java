@@ -33,15 +33,19 @@ public abstract class Game implements Runnable{
 
     protected abstract int Queue(int PlayerNo);
 
-    protected String getPlayerData(){
+    protected ArrayList<Shape> getPlayerData(){
         ArrayList<Shape> data = new ArrayList<Shape>();
         for(Pawn pawn : pawns){
             data.add(pawn.shape);
         }
-        for(Field possibleMove : actualPossibleMoves){
-            data.add(possibleMove.getShape());
+        if(this.actualPossibleMoves!=null)
+        {
+            for(Field possibleMove : actualPossibleMoves){
+                data.add(possibleMove.getShape());
+            }
         }
-        return jsonb.toJson(data);
+
+        return data;
     }
 
     protected abstract void createPawns(int numofplayers);

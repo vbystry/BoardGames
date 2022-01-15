@@ -11,8 +11,7 @@ import java.util.Scanner;
  * Hello world!
  *
  */
-public class App 
-{
+public class App {
     public static Shape decodeFigure(String figure){
 
             int i=0;

@@ -15,6 +15,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class GamePanel extends JPanel implements Runnable {
     private boolean turnflag = false;
     private boolean gameOver = false;
@@ -48,10 +49,12 @@ public class GamePanel extends JPanel implements Runnable {
             else {
                 //System.out.println(data);
                 //board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
-                Shape shape=App.decodeFigure(data);
+                Shape shape= App.decodeFigure(data);
                 board.add(shape);
             }
         }
+
+        this.readToDrawFromBuffer();
 
         myMouseAdapter A= new myMouseAdapter();
         addMouseListener(A);
@@ -61,9 +64,28 @@ public class GamePanel extends JPanel implements Runnable {
     public Shape[][] readBoardFromBuffer(){
         return null;
     }
-    public Shape[][] readToDrawFromBuffer(){
+    public void readToDrawFromBuffer(){
+        boolean flag=true;
+        String data="";
 
-        return null;
+        while(flag) {
+
+            while (!in.hasNextLine()) {
+
+            }
+            data = in.nextLine();
+            if(data.equals("end"))  {
+                flag=false;
+                System.out.println("end");
+            }
+            else {
+                //System.out.println(data);
+                //board=jsonb.fromJson(data, new ArrayList<Shape>(){}.getClass().getGenericSuperclass());
+                Shape shape= App.decodeFigure(data);
+                todraw.add(shape);
+            }
+        }
+        //return null;
     }
     private void drawGame(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
@@ -75,15 +97,16 @@ public class GamePanel extends JPanel implements Runnable {
         {
             g2d.fill(shape);
         }
-        for(Shape shape : board){
+        //for(Shape shape : board){
+          //  g2d.fill(shape);
+        //}
+
+        g2d.setPaint(Color.GREEN);
+
+        for(Shape shape : todraw)
+        {
             g2d.fill(shape);
         }
-
-
-        //for(Shape shape : todraw)
-        //{
-        //    g2d.fill(shape);
-        //}
 
 
     }

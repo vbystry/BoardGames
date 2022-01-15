@@ -44,7 +44,15 @@ public class ChineseCheckers extends Game{
         {
             //oczekiwanie i pobieranie e od klienta
             Object[] clickCords = players.get(PlayerNo).getClickInfo(this);
-            if(HandleClickInfo(clickCords, PlayerNo)>0)  {players.get(PlayerNo).sendData(this.getPlayerData());}
+            if(HandleClickInfo(clickCords, PlayerNo)>0)
+            {
+                //System.out.println();
+                ArrayList<Shape> playerData=getPlayerData();
+                for(Shape shape : playerData){
+                    players.get(PlayerNo).sendData(App.codeFigure(shape));
+                }
+                //this.getPlayerData());
+            }
             if(checkWinnig(PlayerNo))   {return 0;}
         }
         this.players.get(PlayerNo).endRound();
@@ -259,6 +267,7 @@ public class ChineseCheckers extends Game{
 
             if(activePawn.shape.contains(click))
             {
+                actualPossibleMoves=null;
                 return 0;
             }
             else
@@ -266,6 +275,7 @@ public class ChineseCheckers extends Game{
                 for(Field possibleMove : actualPossibleMoves) {
                     if (possibleMove.shape.contains(click)) {
                         movePawn(activePawn, possibleMove.getPosition());
+                        actualPossibleMoves=board.getPossibleMoves(activePawn, 2);
                         return 1;
                     }
                 }
@@ -278,6 +288,7 @@ public class ChineseCheckers extends Game{
             {
                 if (P.shape.contains(click) && P.getPlayerNo() == playerNo) {
                     activePawn = P;
+                    actualPossibleMoves=board.getPossibleMoves(activePawn, 1);
                     return 1;
                 }
             }

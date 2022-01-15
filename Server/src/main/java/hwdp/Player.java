@@ -74,6 +74,12 @@ public class Player implements Runnable{
             }
         }
 
+        out.println("end");
+
+        ArrayList<Shape> playerData=game.getPlayerData();
+        for(Shape shape : playerData){
+            this.sendData(App.codeFigure(shape));
+        }
 
         //String data=jsonb.toJson(Lboard);
 
