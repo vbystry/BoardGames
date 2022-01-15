@@ -161,21 +161,24 @@ public class ChineseCheckersBoard extends Board{
 
             int counter=1;  //uu licze od 1
             int pawnCounter=0;
+            boolean out=false;
 
             xy[0]+=dx;
             xy[1]+=dy;
 
-            while(xy[0]<24 && xy[1]<24 && this.fields[xy[0]][xy[1]] != null )
+            while(!out && xy[0]<24 && xy[1]<24 && this.fields[xy[0]][xy[1]] != null )
             {
-                if(counter==1)
-                {
-                    if(this.fields[xy[0]][xy[1]].getPawns().size()>0)
-                    {
-                        pawnCounter=counter;
+                if(counter==1) {
+                    if (this.fields[xy[0]][xy[1]].getPawns().size() > 0) {
+                        pawnCounter = 0;
+                        out=true;
                     }
                     //double[] coords = ChineseCheckers.covertCoords(xy, "Field")
-                    returnList.add(this.fields[xy[0]][xy[1]]);    //dopilnowac kolejnosc kordow, zmienic dlugosc i szerokosc
-                    System.out.println(App.codeFigure(returnList.get(returnList.size()-1).getShape()));
+                    else {
+                        returnList.add(this.fields[xy[0]][xy[1]]);    //dopilnowac kolejnosc kordow, zmienic dlugosc i szerokosc
+                        System.out.println(App.codeFigure(returnList.get(returnList.size() - 1).getShape()));
+
+                    }
                 }
                 else
                 {
