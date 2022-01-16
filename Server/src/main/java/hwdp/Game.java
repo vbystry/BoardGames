@@ -6,14 +6,35 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+/**
+ * Abstrakcyjna klasa reprezentujaca dowolna gre planszowa
+ */
 public abstract class Game implements Runnable{
+    /**
+     * plansza, na ktore prowadzona jest rozgrywka
+     */
     Board board;
+    /**
+     * lista graczy bioraca udzial w rozgrywce
+     */
     ArrayList<Player> players;
+    /**
+     * lista pionkow
+     */
     ArrayList<Pawn> pawns;
+    /**
+     * lista pol, na ktore moze przemiescic sie pionek
+     */
     ArrayList<Field> actualPossibleMoves;// = new ArrayList<>();
+    /**
+     * pionek bioracy w danej chwili udzial w rozgrywce
+     */
     Pawn activePawn;
+    /**
+     * liczba graczy
+     */
     int playerAm;
-    private Jsonb jsonb = JsonbBuilder.create();
+    //private Jsonb jsonb = JsonbBuilder.create();
 
     Game(int playerAm){
         //this.pawns= new ArrayList<Pawn>();
