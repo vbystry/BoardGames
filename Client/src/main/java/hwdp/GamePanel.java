@@ -23,8 +23,8 @@ public class GamePanel extends JPanel implements Runnable {
     public ArrayList<Shape> todraw = new ArrayList<>();
     private Scanner in;
     private PrintWriter out;
-    private Scanner scanner;
-    private Jsonb jsonb = JsonbBuilder.create();
+   // private Scanner scanner;
+    //private Jsonb jsonb = JsonbBuilder.create();
     private String gameName;
 
     public GamePanel(Scanner in, PrintWriter out, String gameName){

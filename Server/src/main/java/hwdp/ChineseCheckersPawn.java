@@ -16,12 +16,18 @@ public class ChineseCheckersPawn extends Pawn{
      * wewnetrzna klasa typu enum reprezentujaca stany pionka
      */
     public enum status {
+        /**
+         * domyslny status pionka
+         */
         Normal,
+        /**
+         * status pionka, ktory dostal sie w pole przeciwnika
+         */
         Winning
     }
 
     /**
-     * konstruktore pionka, przyporzadkowujacy mu jego polozenei w macierzy, polozenie w panelu, numer gracza, wielkosc, ksztalt oraz definiuje mozliwosci ruchu o konkretne wektory
+     * konstruktor pionka, przyporzadkowujacy mu jego polozenei w macierzy, polozenie w panelu, numer gracza, wielkosc, ksztalt oraz definiuje mozliwosci ruchu o konkretne wektory
      * @param position pozycja w macierzy
      * @param convertedPosition pozycja w panelu
      * @param playerNo numer gracza

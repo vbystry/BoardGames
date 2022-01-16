@@ -38,6 +38,7 @@ public class ChineseCheckersBoard extends Board{
     /**
      * metoda generujaca pola
      * strategia to stworz macierz figur, a nastepnie usun niepotrzebne pola i uformuj gwiazde
+     * dla wybranych pozycji w macierzy dodawane sa pola o przekonwertowanych wspolrzednych
      */
     @Override
     public void generateBoard(){
@@ -175,6 +176,12 @@ public class ChineseCheckersBoard extends Board{
         }
     }
 
+    /**
+     * metoda zwracajaca liste pol, na ktore moze przemiescic sie wybrany pionek
+     * @param pawn pionek, dla ktorego wyszukujemy mozliwych ruchow
+     * @param moveNo
+     * @return lista pol, na ktore mozna przemiescic pionka
+     */
     @Override
     public ArrayList<Field> getPossibleMoves(Pawn pawn, int moveNo) {   //pewnie o czyms i tak zapomnialem
         ArrayList<Field> returnList = new ArrayList<Field>();

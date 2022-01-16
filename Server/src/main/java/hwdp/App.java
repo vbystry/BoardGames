@@ -12,19 +12,34 @@ import java.util.Scanner;
 import java.util.concurrent.Executors;
 
 /**
- * Hello world!
+ * klasa obslugujaca serwer
  *
  */
 public class App
 {
     // All client names, so we can check for duplicates upon registration.
+    /**
+     * uporzadkowany zbior klientow (wyklucza powtorzenia)
+     */
     private static Set<String> names = new HashSet<>();
-
+    /**
+     * lista gier obslugiwanych przez serwer
+     */
     private ArrayList<Game> games = new ArrayList<Game>();
 
     // The set of all the print writers for all the clients, used for broadcast.
+    /**
+     * zbior elementow wyjscia
+     */
     private static Set<PrintWriter> writers = new HashSet<>();
 
+    /**
+     *
+     * @param Name nazwa gry
+     * @param playerAm liczba graczy
+     * @param caller
+     * @return
+     */
     public int newGame(String Name, String playerAm, Player caller){
         switch (Name){
             case "Chinese Checkers":
@@ -53,6 +68,11 @@ public class App
         return 1;
     }
 
+    /**
+     * metoda kodujaca ksztalt w format mozliwy dio przeslania
+     * @param shape kodowany ksztalt
+     * @return zakodowany obiekt
+     */
     public static String codeFigure(Shape shape){
         if(shape instanceof MyShape){
             return "MyShape" + "$"+ String.valueOf(((MyShape) shape).x) + "$"+ String.valueOf(((MyShape) shape).y)+ "$"+ String.valueOf(((MyShape) shape).width)+ "$" +String.valueOf(((MyShape) shape).height) +"$" + ((MyShape) shape).color.toString()+ "$";
