@@ -13,6 +13,9 @@ public class ChineseCheckers extends Game{
     final static private int mycdiameter = 50;
     final static private int standarddis = 10;
     private boolean startFlag=false;
+    private int[] winningfields;
+
+
 
     ChineseCheckers(int playerAm){      //nie wiem czy tu nie bedzie problem, tzn czy w super beda sie wywolwyaly metody nadpisane czy nie
 
@@ -89,6 +92,8 @@ public class ChineseCheckers extends Game{
      */
     @Override
     protected void createPawns(int numofplayers) {
+        winningfields = new int[6];
+
         this.pawns = new ArrayList<Pawn>();
         int mid, left, right;
         int[] pos = new int[2];
@@ -130,7 +135,7 @@ public class ChineseCheckers extends Game{
                             pos[0] = x;
                             pos[1] = y;
                             convpos = covertCoords(pos, "Pawn");
-                            pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                            pawns.add(new ChineseCheckersPawn(pos, convpos, 1));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -155,7 +160,7 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                        pawns.add(new ChineseCheckersPawn(pos, convpos, 3));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -178,7 +183,7 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                        pawns.add(new ChineseCheckersPawn(pos, convpos, 4));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -205,7 +210,7 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                        pawns.add(new ChineseCheckersPawn(pos, convpos, 5));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -227,7 +232,7 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
+                        pawns.add(new ChineseCheckersPawn(pos, convpos, 6));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
