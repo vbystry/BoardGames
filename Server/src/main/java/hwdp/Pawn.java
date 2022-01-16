@@ -25,7 +25,7 @@ public abstract class Pawn {
 
     /**
      * metoda przemieszczajaca pionka
-     * @param position
+     * @param position  polozenie pionka w tablicy pol
      */
     public void move(int[] position){
         this.position=position.clone();
@@ -33,7 +33,7 @@ public abstract class Pawn {
 
     /**
      * skalowanie pionka
-     * @param scale
+     * @param scale wspolczynnik skali
      */
     public void scale(double scale){
     }

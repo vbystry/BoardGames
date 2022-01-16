@@ -67,6 +67,10 @@ public class ChineseCheckers extends Game{
         return false;
     }
 
+    /**
+     *
+     * @param numofplayers
+     */
     @Override
     protected void createPawns(int numofplayers) {
         this.pawns = new ArrayList<Pawn>();

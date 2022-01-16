@@ -3,13 +3,31 @@ package hwdp;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ *Klasa rozszerzajaca plansze do planszy warcabow chinskich
+ */
 public class ChineseCheckersBoard extends Board{
+    /**
+     * wspolrzedna x pierwszego pola planszy
+     */
     private final double initx = 130;       //jak starczy czasu: zrobic gety do tych pol i uzywac ich w Game
+    /**
+     * wspolrzedna y pierwszego pola planszy
+     */
     private final double inity = 10;
     private double ix, iy;
+    /**
+     * srednica standardowego pola planszy
+     */
     final private int mycdiameter = 50;
+    /**
+     * standardowy dystans dzielacy 2 sasiadujace pola w osi horyzontalnej
+     */
     final private int standarddis = 10;
 
+    /**
+     * konstruktor wywolujacy metode inicjalizacyjna
+     */
     ChineseCheckersBoard(){
 
         super();
@@ -17,6 +35,9 @@ public class ChineseCheckersBoard extends Board{
         this.generateBoard();
     }
 
+    /**
+     * metoda generujaca pola
+     */
     @Override
     public void generateBoard(){
         this.fields = new Field[25][17];
