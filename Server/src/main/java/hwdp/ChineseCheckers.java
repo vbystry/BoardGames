@@ -58,6 +58,7 @@ public class ChineseCheckers extends Game{
             if(checkWinnig(PlayerNo))   {return 0;}
         }
         this.players.get(PlayerNo).endRound();
+        ((ChineseCheckersPawn) activePawn).lastPosition.clear();
         return 1;
     }
 

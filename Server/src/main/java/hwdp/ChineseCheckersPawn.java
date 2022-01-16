@@ -1,7 +1,10 @@
 package hwdp;
 
+import java.util.ArrayList;
+
 public class ChineseCheckersPawn extends Pawn{
     private status Status;
+    public ArrayList<int[]> lastPosition = new ArrayList<>();
 
     public enum status {
         Normal,
@@ -10,6 +13,7 @@ public class ChineseCheckersPawn extends Pawn{
 
     public ChineseCheckersPawn(int[] position, double[] convertedPosition, int playerNo){
         this.position= position.clone();
+        this.lastPosition.add(position.clone());
         this.possibleMoves= new int[6][2];
         //zmienic x z y
         this.possibleMoves[0][1]=2;
@@ -36,10 +40,13 @@ public class ChineseCheckersPawn extends Pawn{
 
     @Override
     public void move(int[] position){
+        this.lastPosition.add(this.position.clone());
         this.position=position.clone();
 
-        ((MyShape) shape).x+=this.position[0];
-        ((MyShape) shape).y+=this.position[1];
+        double[] convCords=ChineseCheckers.covertCoords(this.position, "Pawn");
+
+        ((MyShape) shape).x=convCords[0];
+        ((MyShape) shape).y=convCords[1];
     }
 
     public void setStatus(status S) {

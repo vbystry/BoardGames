@@ -152,6 +152,16 @@ public class ChineseCheckersBoard extends Board{
     @Override
     public ArrayList<Field> getPossibleMoves(Pawn pawn, int moveNo) {   //pewnie o czyms i tak zapomnialem
         ArrayList<Field> returnList = new ArrayList<Field>();
+
+        if( ((ChineseCheckersPawn) pawn).lastPosition.size()>1 ){
+            for(int[] lastP : ((ChineseCheckersPawn) pawn).lastPosition)
+            {
+                //wywalac kiedy wrocimy na poczatkowa (w pawn)
+                returnList.add(this.fields[lastP[0]][lastP[1]]);
+            }
+        }
+
+
         for(int i=0; i<6; i++)
         {
             int[] xy= pawn.getPosition().clone();
@@ -166,7 +176,7 @@ public class ChineseCheckersBoard extends Board{
             xy[0]+=dx;
             xy[1]+=dy;
 
-            while(!out && xy[0]<24 && xy[1]<24 && xy[0]<0 && xy[1]<0 && this.fields[xy[0]][xy[1]] != null )
+            while(!out && xy[0]<24 && xy[1]<17 && xy[0]>0 && xy[1]>0 && this.fields[xy[0]][xy[1]] != null )
             {
                 if(counter==1) {
                     if (this.fields[xy[0]][xy[1]].getPawns().size() > 0) {
@@ -175,7 +185,9 @@ public class ChineseCheckersBoard extends Board{
                     }
                     //double[] coords = ChineseCheckers.covertCoords(xy, "Field")
                     else {
-                        returnList.add(this.fields[xy[0]][xy[1]]);    //dopilnowac kolejnosc kordow, zmienic dlugosc i szerokosc
+                        if(moveNo==1){
+                            returnList.add(this.fields[xy[0]][xy[1]]);    //dopilnowac kolejnosc kordow, zmienic dlugosc i szerokosc
+                        }
                         System.out.println(App.codeFigure(returnList.get(returnList.size() - 1).getShape()));
 
                     }
