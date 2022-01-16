@@ -65,6 +65,9 @@ public class ChineseCheckersPawn extends Pawn{
      */
     @Override
     public void move(int[] position){
+        if(this.lastPosition.size()>1 && position.equals(this.lastPosition.get(0))){
+            this.lastPosition.clear();
+        }
         this.lastPosition.add(this.position.clone());
         this.position=position.clone();
 

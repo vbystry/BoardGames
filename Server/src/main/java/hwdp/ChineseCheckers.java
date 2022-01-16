@@ -258,7 +258,7 @@ public class ChineseCheckers extends Game{
                 for(Field possibleMove : actualPossibleMoves) {
                     if (possibleMove.shape.contains(click)) {
                         movePawn(activePawn, possibleMove.getPosition());
-                        actualPossibleMoves=board.getPossibleMoves(activePawn, 2);
+                        actualPossibleMoves=board.getPossibleMoves(activePawn, ((ChineseCheckersPawn)activePawn).lastPosition.size());
                         return 1;
                     }
                 }
