@@ -211,7 +211,7 @@ public class ChineseCheckersBoard extends Board{
             xy[0]+=dx;
             xy[1]+=dy;
 
-            while(!out && xy[0]<24 && xy[1]<17 && xy[0]>0 && xy[1]>0 && this.fields[xy[0]][xy[1]] != null )
+            while(!out && xy[0]<25 && xy[1]<17 && xy[0]>0 && xy[1]>0 && this.fields[xy[0]][xy[1]] != null )
             {
                 if(counter==1) {
                     if (this.fields[xy[0]][xy[1]].getPawns().size() > 0) {
