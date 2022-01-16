@@ -37,6 +37,7 @@ public class ChineseCheckersBoard extends Board{
 
     /**
      * metoda generujaca pola
+     * strategia to stworz macierz figur, a nastepnie usun niepotrzebne pola i uformuj gwiazde
      */
     @Override
     public void generateBoard(){
@@ -162,6 +163,10 @@ public class ChineseCheckersBoard extends Board{
 
     }
 
+    /**
+     * metoda przyporzadkowujaca wybranym polom liste pionkow, ktore powinny znajdowac sie w polu
+     * @param pawns lista pionkow znajdujacych sie na planszy
+     */
     @Override
     public void setPawns(ArrayList<Pawn> pawns) {
         for(Pawn P : pawns)
@@ -241,6 +246,12 @@ public class ChineseCheckersBoard extends Board{
         return returnList;
     }
 
+    /**
+     * metoda konwertujaca wspolrzedna x z pozycji w macierzy na wektor pikseli w panelu
+     * @param x pierszy indeks w macierzy
+     * @param y drugi indeks w macierzy
+     * @return przekonwertowana wspolrzedna
+     */
     @Override
     public double convertCoordX(int x, int y) {
 
@@ -251,6 +262,11 @@ public class ChineseCheckersBoard extends Board{
         }
     }
 
+    /**
+     * metoda konwertujaca wspolrzedna y z pozycji w macierzy na wektor pikseli w panelu
+     * @param y drugi indeks w macierzy
+     * @return przekonwertowana wspolrzedna
+     */
     @Override
     public double convertCoordY(int y){
         return inity + y * mycdiameter;
