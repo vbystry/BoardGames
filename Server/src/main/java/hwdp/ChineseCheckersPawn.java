@@ -12,6 +12,8 @@ public class ChineseCheckersPawn extends Pawn{
      */
     public ArrayList<int[]> lastPosition = new ArrayList<>();
 
+    private int[][] winningFields;
+
     /**
      * wewnetrzna klasa typu enum reprezentujaca stany pionka
      */
@@ -34,7 +36,7 @@ public class ChineseCheckersPawn extends Pawn{
      */
     public ChineseCheckersPawn(int[] position, double[] convertedPosition, int playerNo){
         this.position= position.clone();
-        this.lastPosition.add(position.clone());
+        //this.lastPosition.add(position.clone());
         this.possibleMoves= new int[6][2];
         //zmienic x z y
         this.possibleMoves[0][1]=2;
@@ -65,10 +67,14 @@ public class ChineseCheckersPawn extends Pawn{
      */
     @Override
     public void move(int[] position){
-        if(this.lastPosition.size()>1 && position.equals(this.lastPosition.get(0))){
+        if(this.lastPosition.size()>0 && position[0]==this.lastPosition.get(0)[0] && position[1]==this.lastPosition.get(0)[1]){
+            System.out.println("clear");
             this.lastPosition.clear();
         }
-        this.lastPosition.add(this.position.clone());
+        else{
+            this.lastPosition.add(this.position.clone());
+        }
+
         this.position=position.clone();
 
         double[] convCords=ChineseCheckers.covertCoords(this.position, "Pawn");

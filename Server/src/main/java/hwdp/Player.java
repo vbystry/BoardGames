@@ -104,7 +104,7 @@ public class Player implements Runnable{
     }
 
     public void endRound(){
-        out.println("Round over");
+        out.println("Turn over");
     }
 
     public void run(){

@@ -186,13 +186,15 @@ public class ChineseCheckersBoard extends Board{
     public ArrayList<Field> getPossibleMoves(Pawn pawn, int moveNo) {   //pewnie o czyms i tak zapomnialem
         ArrayList<Field> returnList = new ArrayList<Field>();
 
-        if( ((ChineseCheckersPawn) pawn).lastPosition.size()>1 ){
+        if( ((ChineseCheckersPawn) pawn).lastPosition.size()>0 ){
             for(int[] lastP : ((ChineseCheckersPawn) pawn).lastPosition)
             {
                 //wywalac kiedy wrocimy na poczatkowa (w pawn)
                 returnList.add(this.fields[lastP[0]][lastP[1]]);
             }
         }
+
+        returnList.remove(pawn.position);
 
 
         for(int i=0; i<6; i++)
@@ -221,7 +223,7 @@ public class ChineseCheckersBoard extends Board{
                         if(moveNo==1){
                             returnList.add(this.fields[xy[0]][xy[1]]);    //dopilnowac kolejnosc kordow, zmienic dlugosc i szerokosc
                         }
-                        System.out.println(App.codeFigure(returnList.get(returnList.size() - 1).getShape()));
+                        //System.out.println(App.codeFigure(returnList.get(returnList.size() - 1).getShape()));
 
                     }
                 }
