@@ -8,10 +8,15 @@ import java.net.Socket;
 import java.util.Scanner;
 
 /**
- * Hello world!
+ * klasa klienta  odpowiadajaca za utworzenie okna menu wyboru gry
  *
  */
 public class App {
+    /**
+     * metoda dekodujaca lancuch znakow w obiekt graficzny
+     * @param figure zakodowany lancuch znakow
+     * @return odkodowany ksztalt
+     */
     public static Shape decodeFigure(String figure){
 
             int i=0;
