@@ -11,8 +11,8 @@ public class ChineseCheckersField extends Field{
 
     /**
      * Konstruktor dziedziczacy po klasie abstrakcyjnej
-     * @param shape
-     * @param position
+     * @param shape ksztalt pola
+     * @param position miejsce pola w strukturze danych planszy
      */
     ChineseCheckersField(Shape shape, int[] position) {
         super(shape, position);
@@ -20,7 +20,7 @@ public class ChineseCheckersField extends Field{
 
     /**
      * Metoda zwracajaca ksztalt pola
-     * @return
+     * @return ksztalt pola
      */
     @Override
     public Shape getShape() {
@@ -29,7 +29,7 @@ public class ChineseCheckersField extends Field{
 
     /**
      * metoda dodajace pionka do listy pionkow poloznych na danym polu
-     * @param pawntoadd
+     * @param pawntoadd pionek, ktorego chcemy dodac do listy
      */
     @Override
     public void addPawn(Pawn pawntoadd) {
@@ -39,7 +39,7 @@ public class ChineseCheckersField extends Field{
 
     /**
      * metoda usuwajaca pionka z listy pionkow poloznych na danym polu
-     * @param pawntomremove
+     * @param pawntomremove pionek, ktorego chcemy usunac z lity
      */
     @Override
     public void removePawn(Pawn pawntomremove) {

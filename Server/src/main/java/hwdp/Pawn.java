@@ -40,7 +40,7 @@ public abstract class Pawn {
 
     /**
      * publiczna metoda zwracajaca biezaca pozycje pionka
-     * @return
+     * @return pozycja pionka
      */
     public int[] getPosition(){
         return this.position;
@@ -48,7 +48,7 @@ public abstract class Pawn {
 
     /**
      * publiczna metoda zwracajaca numer gracza odpowiedzialnego za obsluge pionka
-     * @return
+     * @return numer gracza
      */
     public int getPlayerNo(){
         return playerNo;
