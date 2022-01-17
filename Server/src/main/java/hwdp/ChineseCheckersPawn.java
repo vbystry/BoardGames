@@ -6,6 +6,9 @@ public class ChineseCheckersPawn extends Pawn{
     /**
      * Status kazdego z pionkow, w tym przypadku zwycieski oraz standardowy
      */
+
+    public boolean outOfBase=false;
+
     private status Status;
     /**
      * lista
@@ -69,13 +72,21 @@ public class ChineseCheckersPawn extends Pawn{
     @Override
     public void move(int[] position){
         //wywalac nie tylko przy powrocie na 1 (obcinac elementy o indexie wiekszym niz position)
-        if(this.lastPosition.size()>0 && position[0]==this.lastPosition.get(0)[0] && position[1]==this.lastPosition.get(0)[1]){
+        if(this.lastPosition.size()>0) //&& position[0]==this.lastPosition.get(0)[0] && position[1]==this.lastPosition.get(0)[1]){
+        {
             System.out.println("clear");
-            this.lastPosition.clear();
+            //this.lastPosition.clear();
+
+            for(int i=lastPosition.indexOf(position); i<lastPosition.size(); i++) {
+                lastPosition.remove(lastPosition.size()-1);
+            }
+
         }
         else{
             this.lastPosition.add(this.position.clone());
         }
+
+
 
         this.position=position.clone();
 

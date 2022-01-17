@@ -99,7 +99,18 @@ public class ChineseCheckers extends Game{
 
     private boolean checkWinnig(int PlayerNo){
         //Do zaimplementowania
-        return false;
+
+        boolean winningFlag=true;
+
+        for(Pawn p : pawns){
+            if(p.playerNo==PlayerNo){
+                if(!winningfields[PlayerNo].contains(p.position)){
+                    winningFlag=false;
+                }
+            }
+        }
+
+        return winningFlag;
     }
 
     /**
@@ -386,8 +397,25 @@ public class ChineseCheckers extends Game{
 
             if(activePawn.shape.contains(click))
             {
-                actualPossibleMoves.clear();
-                return 0;
+                if(forbiddenfields[playerNo].contains(activePawn.position.clone())){
+                    if(((ChineseCheckersPawn)activePawn).outOfBase){
+                        //players.get(playerNo).sendData("You cannot end here");
+                        return 1;
+                    }
+                    else{
+                        actualPossibleMoves.clear();
+                        return 0;
+                    }
+                }
+                else if(!((ChineseCheckersPawn)activePawn).outOfBase){
+                    ((ChineseCheckersPawn)activePawn).outOfBase=true;
+                    actualPossibleMoves.clear();
+                    return 0;
+                }
+                else{
+                    actualPossibleMoves.clear();
+                    return 0;
+                }
             }
             else
             {

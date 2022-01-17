@@ -238,6 +238,7 @@ public class ChineseCheckersBoard extends Board{
                         else    //nie mozemy skakac przez 2 pionki
                         {
                             pawnCounter=0;
+                            break;
                         }
                     }
                     else if(counter-pawnCounter == pawnCounter)
