@@ -38,6 +38,7 @@ public class ChineseCheckersPawn extends Pawn{
         this.position= position.clone();
         //this.lastPosition.add(position.clone());
         this.possibleMoves= new int[6][2];
+        this.playerNo=playerNo-1;
         //zmienic x z y
         this.possibleMoves[0][1]=2;
         this.possibleMoves[0][0]=0;
@@ -67,6 +68,7 @@ public class ChineseCheckersPawn extends Pawn{
      */
     @Override
     public void move(int[] position){
+        //wywalac nie tylko przy powrocie na 1 (obcinac elementy o indexie wiekszym niz position)
         if(this.lastPosition.size()>0 && position[0]==this.lastPosition.get(0)[0] && position[1]==this.lastPosition.get(0)[1]){
             System.out.println("clear");
             this.lastPosition.clear();
