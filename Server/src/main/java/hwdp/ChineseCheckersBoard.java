@@ -49,7 +49,7 @@ public class ChineseCheckersBoard extends Board{
             for(int j = 0; j < 25; j++){
                 if((i%2 ==0 && j%2==0) || i%2 == 1 && j%2 == 1) {
                     int[] position = {j, i};
-                    fields[j][i] = new ChineseCheckersField(new MyShape(this.convertCoordX(j, i), this.convertCoordY(i), mycdiameter, mycdiameter), position);
+                    fields[j][i] = new ChineseCheckersField(new MyShape(this.convertCoordX(j, i), this.convertCoordY(i), mycdiameter, mycdiameter,new Color(10,70,30)), position);
                     //fields[j][i].shape = new MyShape(this.convertCoordX(j, i), this.convertCoordY(i), mycdiameter, mycdiameter);
                     //fields[j][i].position = {j, i};
                     //ix += (mycdiameter + standarddis);
