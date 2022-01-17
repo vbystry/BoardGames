@@ -15,9 +15,13 @@ public class ChineseCheckers extends Game{
     final static private int standarddis = 10;
     private boolean startFlag=false;
     private ArrayList<int[]>[] winningfields;
+    private ArrayList<int[]>[] forbiddenfields;
 
     public ArrayList<int[]> getWinningfields(int pos){
         return winningfields[pos];
+    }
+    public ArrayList<int[]> getForbiddenFields(int pos){
+        return forbiddenfields[pos];
     }
 
 
@@ -105,13 +109,13 @@ public class ChineseCheckers extends Game{
     @Override
     protected void createPawns(int numofplayers) {
         winningfields = new ArrayList[7]; //winningfields[0] to null, indeksowanie zgodne z id gracza
-
+        forbiddenfields = new ArrayList[7];
         this.pawns = new ArrayList<Pawn>();
         int mid, left, right;
         int[] pos = new int[2];
         double[] convpos;
         //int count = 0;
-        if(numofplayers == 2 || numofplayers == 4 || numofplayers == 6){
+       // if(numofplayers == 2 || numofplayers == 4 || numofplayers == 6){
 
                 //north corner
 
@@ -119,29 +123,42 @@ public class ChineseCheckers extends Game{
                 left = mid;
                 right = mid;
                 winningfields[1] = new ArrayList<>();
+                for(int i = 1; i < 7; i++){
+                    forbiddenfields[i] = new ArrayList<>();
+                }
                 for (int y = 0; y < 4; y++) {
                     for (int x = left; x <= right; x += 2) {
-
-                        //System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
-                        try {
-                            pos[0] = x;
-                            pos[1] = y;
-                            //System.out.println("x: " + Integer.toString(pos[0]) + " y: " + Integer.toString(pos[1]));
-                          //  System.out.println(" ");
-
-
-                        convpos = covertCoords(pos, "Pawn");
-                            pawns.add(new ChineseCheckersPawn(pos, convpos, 2));
-                            winningfields[1].add(pos.clone());
-
-                            //System.out.println("x: " + Integer.toString(winningfields[1].get(count)[0]) + " y: " + Integer.toString(winningfields[1].get(count)[1]));
-
-                       // count++;
+                        if(numofplayers == 2 || numofplayers == 4 || numofplayers == 6) {
+                            //System.out.println("x: " + Integer.toString(x) + " y: " + Integer.toString(y));
+                            try {
+                                pos[0] = x;
+                                pos[1] = y;
+                                //System.out.println("x: " + Integer.toString(pos[0]) + " y: " + Integer.toString(pos[1]));
+                                //  System.out.println(" ");
 
 
-                        } catch (Exception e) {
-                           e.printStackTrace();
+                                convpos = covertCoords(pos, "Pawn");
+                                if(numofplayers == 2 || numofplayers == 4 || numofplayers == 6) {
+                                    pawns.add(new ChineseCheckersPawn(pos, convpos, 2));    //jesli prowadzimy rozgrywke dla dowolnej liczby graczy dodaj pionki gracza 2
+                                }
+
+                                winningfields[1].add(pos.clone());  //zawsze dodaj zwycieskie pionki gracza 2
+
+                                forbiddenfields[3].add(pos.clone());        //zawsze dodaj zakazane pionki pozostalych graczy
+                                forbiddenfields[4].add(pos.clone());
+                                forbiddenfields[5].add(pos.clone());
+                                forbiddenfields[6].add(pos.clone());
+
+                                //System.out.println("x: " + Integer.toString(winningfields[1].get(count)[0]) + " y: " + Integer.toString(winningfields[1].get(count)[1]));
+
+                                // count++;
+
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
+
                     }
                     left--;
                     right++;
@@ -163,9 +180,15 @@ public class ChineseCheckers extends Game{
                             pos[0] = x;
                             pos[1] = y;
                             convpos = covertCoords(pos, "Pawn");
-                            pawns.add(new ChineseCheckersPawn(pos, convpos, 1));
-
+                            if(numofplayers == 2 || numofplayers == 4 || numofplayers == 6) {
+                                pawns.add(new ChineseCheckersPawn(pos, convpos, 1));
+                            }
                             winningfields[2].add(pos.clone());
+
+                            forbiddenfields[3].add(pos.clone());
+                            forbiddenfields[4].add(pos.clone());
+                            forbiddenfields[5].add(pos.clone());
+                            forbiddenfields[6].add(pos.clone());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -174,9 +197,9 @@ public class ChineseCheckers extends Game{
                     right++;
                 }
 
-        }
+       // }
 
-        if(numofplayers == 4 || numofplayers == 6){
+        //if(numofplayers == 4 || numofplayers == 6){
             //south east corner
 
             mid = 21;
@@ -191,8 +214,15 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        pawns.add(new ChineseCheckersPawn(pos, convpos, 3));
+                        if(numofplayers == 4 || numofplayers == 6) {
+                            pawns.add(new ChineseCheckersPawn(pos, convpos, 3));
+                        }
                         winningfields[4].add(pos.clone());
+
+                        forbiddenfields[2].add(pos.clone());
+                        forbiddenfields[5].add(pos.clone());
+                        forbiddenfields[6].add(pos.clone());
+                        forbiddenfields[1].add(pos.clone());
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -215,8 +245,15 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        pawns.add(new ChineseCheckersPawn(pos, convpos, 4));
+                        if(numofplayers == 4 || numofplayers == 6) {
+                            pawns.add(new ChineseCheckersPawn(pos, convpos, 4));
+                        }
                         winningfields[3].add(pos.clone());
+
+                        forbiddenfields[2].add(pos.clone());
+                        forbiddenfields[5].add(pos.clone());
+                        forbiddenfields[6].add(pos.clone());
+                        forbiddenfields[1].add(pos.clone());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -227,8 +264,8 @@ public class ChineseCheckers extends Game{
 
 
 
-        }
-        if(numofplayers == 6){
+        //}
+       // if(numofplayers == 6){
 
             //south east corner
 
@@ -245,8 +282,15 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        pawns.add(new ChineseCheckersPawn(pos, convpos, 5));
+                        if(numofplayers == 6) {
+                            pawns.add(new ChineseCheckersPawn(pos, convpos, 5));
+                        }
                         winningfields[6].add(pos.clone());
+
+                        forbiddenfields[2].add(pos.clone());
+                        forbiddenfields[3].add(pos.clone());
+                        forbiddenfields[4].add(pos.clone());
+                        forbiddenfields[1].add(pos.clone());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -271,8 +315,15 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        pawns.add(new ChineseCheckersPawn(pos, convpos, 6));
+                        if(numofplayers == 6) {
+                            pawns.add(new ChineseCheckersPawn(pos, convpos, 6));
+                        }
                         winningfields[5].add(pos.clone());
+
+                        forbiddenfields[2].add(pos.clone());
+                        forbiddenfields[3].add(pos.clone());
+                        forbiddenfields[4].add(pos.clone());
+                        forbiddenfields[1].add(pos.clone());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -304,7 +355,7 @@ public class ChineseCheckers extends Game{
                 left--;
                 right++;
             }*/
-        }
+       // }
 
     }
 

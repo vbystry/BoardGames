@@ -27,6 +27,8 @@ public class GameTests{
         assertEquals(12, test2.getWinningfields(1).get(0)[0]);
         assertEquals(21, test2.getWinningfields(4).get(0)[0]);
 
+        assertEquals(40, test2.getForbiddenFields(2).size());
+
         //assertEquals(0, test2.winningfields[1].get(0)[0]);
 
 
