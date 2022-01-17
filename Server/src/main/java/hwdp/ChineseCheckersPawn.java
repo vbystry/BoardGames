@@ -38,6 +38,7 @@ public class ChineseCheckersPawn extends Pawn{
         this.position= position.clone();
         //this.lastPosition.add(position.clone());
         this.possibleMoves= new int[6][2];
+        this.playerNo=playerNo-1;
         //zmienic x z y
         this.possibleMoves[0][1]=2;
         this.possibleMoves[0][0]=0;

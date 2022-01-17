@@ -78,6 +78,7 @@ public class ChineseCheckers extends Game{
 
         this.players.get(PlayerNo).endRound();
         ((ChineseCheckersPawn) activePawn).lastPosition.clear();
+        activePawn=null;
         return 1;
     }
 
@@ -292,7 +293,7 @@ public class ChineseCheckers extends Game{
             {
                 if (P.shape.contains(click) && P.getPlayerNo() == playerNo) {
                     activePawn = P;
-                    //System.out.println(activePawn);
+                    System.out.println(activePawn);
                     actualPossibleMoves=board.getPossibleMoves(activePawn, 1);
                     //System.out.println(actualPossibleMoves);
                     for(Field field : actualPossibleMoves){
@@ -307,7 +308,9 @@ public class ChineseCheckers extends Game{
 
     @Override
     protected void movePawn(Pawn P, int[] position) {
+        board.fields[P.position[0]][P.position[1]].getPawns().remove(P);
         P.move(position);
+        board.fields[P.position[0]][P.position[1]].getPawns().add(P);
     }
 
 
