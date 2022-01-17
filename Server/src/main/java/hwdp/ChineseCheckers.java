@@ -72,9 +72,15 @@ public class ChineseCheckers extends Game{
 
         ArrayList<Shape> playerData=getPlayerData();
         for(Shape shape : playerData){
-            players.get(PlayerNo).sendData(App.codeFigure(shape));
+            for(Player p : players){
+                p.sendData(App.codeFigure(shape));
+            }
+
         }
-        players.get(PlayerNo).sendData("end");
+        for(Player p : players){
+            p.sendData("end");
+        }
+        //players.get(PlayerNo).sendData("end");
 
         this.players.get(PlayerNo).endRound();
         ((ChineseCheckersPawn) activePawn).lastPosition.clear();
