@@ -1,5 +1,6 @@
 package hwdp;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class ChineseCheckersPawn extends Pawn{
@@ -37,7 +38,7 @@ public class ChineseCheckersPawn extends Pawn{
      * @param convertedPosition pozycja w panelu
      * @param playerNo numer gracza
      */
-    public ChineseCheckersPawn(int[] position, double[] convertedPosition, int playerNo){
+    public ChineseCheckersPawn(int[] position, double[] convertedPosition, int playerNo, Color color){
         this.position= position.clone();
         //this.lastPosition.add(position.clone());
         this.possibleMoves= new int[6][2];
@@ -62,7 +63,7 @@ public class ChineseCheckersPawn extends Pawn{
         this.possibleMoves[5][0]=-1;
 
         int pawndiameter = 30;
-        this.shape = new MyShape(convertedPosition.clone()[0], convertedPosition.clone()[1], pawndiameter, pawndiameter);    //ej jak ustawic status na active? xd
+        this.shape = new MyShape(convertedPosition.clone()[0], convertedPosition.clone()[1], pawndiameter, pawndiameter, color);    //ej jak ustawic status na active? xd
     }
 
     /**

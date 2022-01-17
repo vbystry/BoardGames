@@ -93,6 +93,7 @@ public class Menu extends JFrame implements ActionListener{
             choiceofgame.addItem("Other game in the future");
             amofplayers = new JComboBox<String>();
             amofplayers.addItem("2");
+            amofplayers.addItem("3");
             amofplayers.addItem("4");
             amofplayers.addItem("6");
             button = new JButton("Play");
@@ -126,6 +127,9 @@ public class Menu extends JFrame implements ActionListener{
                     case "2":
 
                         players = 2;
+                        break;
+                    case "3":
+                        players = 3;
                         break;
                     case "4":
                         players = 4;
