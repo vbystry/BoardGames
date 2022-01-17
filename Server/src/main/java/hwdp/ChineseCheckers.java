@@ -149,7 +149,7 @@ public class ChineseCheckers extends Game{
 
 
                                 convpos = covertCoords(pos, "Pawn");
-                                if(numofplayers == 2 || numofplayers == 4 || numofplayers == 6) {
+                                if(numofplayers == 2 || numofplayers == 4 || numofplayers == 6 || numofplayers == 3) {
                                     pawns.add(new ChineseCheckersPawn(pos, convpos, 2));    //jesli prowadzimy rozgrywke dla dowolnej liczby graczy dodaj pionki gracza 2
                                 }
 
@@ -225,7 +225,7 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        if(numofplayers == 4 || numofplayers == 6) {
+                        if(numofplayers == 4 || numofplayers == 6 || numofplayers == 3) {
                             pawns.add(new ChineseCheckersPawn(pos, convpos, 3));
                         }
                         winningfields[4].add(pos.clone());
@@ -326,7 +326,7 @@ public class ChineseCheckers extends Game{
                         pos[0] = x;
                         pos[1] = y;
                         convpos = covertCoords(pos, "Pawn");
-                        if(numofplayers == 6) {
+                        if(numofplayers == 6 || numofplayers == 3) {
                             pawns.add(new ChineseCheckersPawn(pos, convpos, 6));
                         }
                         winningfields[5].add(pos.clone());
