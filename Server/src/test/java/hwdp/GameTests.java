@@ -8,9 +8,9 @@ import static org.junit.Assert.*;
 public class GameTests{
     @Test
     public void shouldCreateThePawns(){
-        ChineseCheckers testgame = new ChineseCheckers(6);
+        ChineseCheckers testgame = new ChineseCheckers(3);
 
-        assertEquals(60, testgame.pawns.size());
+        assertEquals(30, testgame.pawns.size());
 
         ChineseCheckers test2 = new ChineseCheckers(6);
         assertEquals(60, test2.pawns.size());
