@@ -68,19 +68,23 @@ public class ChineseCheckersPawn extends Pawn{
 
     /**
      * metoda przemieszczajaca pionek z pierwotnej pozycji na nowa
-     * @param position  docelowe polozenie w macierzy
+     * @param Position  docelowe polozenie w macierzy
      */
     @Override
-    public void move(int[] position){
+    public void move(int[] Position){
         //wywalac nie tylko przy powrocie na 1 (obcinac elementy o indexie wiekszym niz position)
         if(this.lastPosition.size()>0) //&& position[0]==this.lastPosition.get(0)[0] && position[1]==this.lastPosition.get(0)[1]){
         {
             System.out.println("clear");
             //this.lastPosition.clear();
-
-            for(int i=lastPosition.indexOf(position); i<lastPosition.size(); i++) {
-                lastPosition.remove(lastPosition.size()-1);
+            //napisac metode index of array in list of arrays
+            int index=ChineseCheckers.indexOfArrayInList(Position, lastPosition);
+            if(index<lastPosition.size()){
+                for(int i=index; i<lastPosition.size(); i++) {
+                    lastPosition.remove(lastPosition.size()-1);
+                }
             }
+
 
         }
         else{
@@ -89,7 +93,7 @@ public class ChineseCheckersPawn extends Pawn{
 
 
 
-        this.position=position.clone();
+        this.position=Position.clone();
 
         double[] convCords=ChineseCheckers.covertCoords(this.position, "Pawn");
 
