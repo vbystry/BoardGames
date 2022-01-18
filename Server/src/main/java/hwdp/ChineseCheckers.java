@@ -114,6 +114,32 @@ public class ChineseCheckers extends Game{
         return winningFlag;
     }
 
+    public Shape retShape(int playerNo){
+        switch(playerNo){
+            case 1:
+                return new MyShape(1200, 50, 50, 50, new Color(100, 40, 90));
+
+            case 2:
+                return new MyShape(1200, 50, 50, 50, new Color(40, 60, 90));
+
+            case 3:
+                return new MyShape(1200, 50, 50, 50, new Color(20, 100, 50));
+
+            case 4:
+                return new MyShape(1200, 50, 50, 50, new Color(30, 60, 80));
+
+            case 5:
+                return new MyShape(1200, 50, 50, 50, new Color(120, 20, 60));
+
+            case 6:
+                return new MyShape(1200, 50, 50, 50, new Color(100, 100, 0));
+
+            default:
+                return null;
+
+        }
+    }
+
     /**
      *
      * @param numofplayers

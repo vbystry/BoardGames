@@ -120,7 +120,7 @@ public class GamePanel extends JPanel implements Runnable {
     private void drawGame(Graphics g){
         //System.out.println("rysujemy");
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setPaint(new Color(20,50,70));
+        g2d.setPaint(new Color(100,100,100));
         //Rectangle2D rec = new Rectangle2D.Double(100,100,20,50);
         //g2d.fill(rec);
 
