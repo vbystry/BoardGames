@@ -135,7 +135,7 @@ public class GamePanel extends JPanel implements Runnable {
         //g2d.setPaint(Color.GREEN);
         for(Shape shape : todraw)
         {
-           // g2d.setPaint(shape.col);
+            g2d.setPaint(((MyShape)shape).color);
             g2d.fill(shape);
         }
 
