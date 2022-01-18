@@ -104,7 +104,8 @@ public class ChineseCheckers extends Game{
 
         for(Pawn p : pawns){
             if(p.playerNo==PlayerNo){
-                if(!winningfields[PlayerNo+1].contains(p.position)){
+                //if(!winningfields[PlayerNo+1].contains(p.position)){
+                if(indexOfArrayInList(p.position, winningfields[PlayerNo+1])==winningfields[PlayerNo+1].size()) {
                     winningFlag=false;
                 }
             }
@@ -397,7 +398,7 @@ public class ChineseCheckers extends Game{
 
             if(activePawn.shape.contains(click))
             {
-                if(forbiddenfields[playerNo+1].contains(activePawn.position.clone())){
+                if(indexOfArrayInList(activePawn.position, forbiddenfields[playerNo+1])<forbiddenfields[playerNo+1].size()){
                     System.out.println("Forbiddenfields");
                     if(((ChineseCheckersPawn)activePawn).outOfBase){
                         //players.get(playerNo).sendData("You cannot end here");

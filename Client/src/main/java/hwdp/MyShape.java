@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 public class MyShape extends Ellipse2D.Double {
-    private Color color;
+    public Color color;
     public MyShape(double x, double y, double width, double height){
         super(x, y, width, height);
         //this.r = 10;

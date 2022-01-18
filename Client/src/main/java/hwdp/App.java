@@ -18,7 +18,7 @@ public class App {
      * @return odkodowany ksztalt
      */
     public static Shape decodeFigure(String figure){
-
+            System.out.println(figure);
             int i=0;
             String[] color = {"","",""};
             Shape f;
