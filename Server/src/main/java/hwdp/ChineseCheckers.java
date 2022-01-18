@@ -75,7 +75,7 @@ public class ChineseCheckers extends Game{
                     players.get(PlayerNo).sendData(App.codeFigure(shape));
                 }
 
-                players.get(PlayerNo).sendData(App.codeFigure(retShape(PlayerNo+1)));
+                //players.get(PlayerNo).sendData(App.codeFigure(retShape(PlayerNo + 1)));
 
                 players.get(PlayerNo).sendData("end");
                 //queueFlag=0;
@@ -91,6 +91,7 @@ public class ChineseCheckers extends Game{
             if(checkWinnig(PlayerNo))   {
                 inactivePlayers.add(players.get(PlayerNo));
                 players.remove(PlayerNo);
+                System.out.println("ktos tam wygral");
                 return players.size()-1;
             }
         }
@@ -111,6 +112,7 @@ public class ChineseCheckers extends Game{
             for(Player p : inactivePlayers){
                 p.sendData(App.codeFigure(shape));
             }
+
         }
         for(Player p : inactivePlayers){
             p.sendData("end");
@@ -139,8 +141,21 @@ public class ChineseCheckers extends Game{
 
         return winningFlag;
     }
+    public boolean tmp (int pl){
+        return this.checkWinnig(pl);
+    }
+    public void setWinner(int pl){
+        int c = 0;
+        for(Pawn p : pawns){
+            if(p.playerNo == pl){
+                System.out.println(Arrays.toString(p.position) + "  " + Arrays.toString(winningfields[2].get(c)));
+                p.position = winningfields[2].get(c).clone();
+                c++;
+            }
+        }
 
-    public MyShape retShape(int playerNo){
+    }
+    public Shape retShape(int playerNo){
         switch(playerNo){
             case 1:
                 return new MyShape(1200, 50, 50, 50, colors[0]);
