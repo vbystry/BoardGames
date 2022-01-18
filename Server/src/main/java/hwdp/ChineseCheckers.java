@@ -16,6 +16,7 @@ public class ChineseCheckers extends Game{
     private boolean startFlag=false;
     private ArrayList<int[]>[] winningfields;
     private ArrayList<int[]>[] forbiddenfields;
+    private ArrayList<Player> inactivePlayers=new ArrayList<>();
 
     public ArrayList<int[]> getWinningfields(int pos){
         return winningfields[pos];
@@ -26,8 +27,7 @@ public class ChineseCheckers extends Game{
 
 
 
-    ChineseCheckers(int playerAm){      //nie wiem czy tu nie bedzie problem, tzn czy w super beda sie wywolwyaly metody nadpisane czy nie
-
+    ChineseCheckers(int playerAm){
         super(playerAm);
 
         this.playerAm=playerAm;
@@ -43,7 +43,7 @@ public class ChineseCheckers extends Game{
         while(Queue(PlayerNo)>0)
         {
             PlayerNo++;
-            PlayerNo%=this.playerAm;
+            PlayerNo%=this.players.size();
         }
         return 1;
     }
@@ -64,6 +64,9 @@ public class ChineseCheckers extends Game{
                 for(Shape shape : playerData){
                     players.get(PlayerNo).sendData(App.codeFigure(shape));
                 }
+
+                players.get(PlayerNo).sendData(App.codeFigure(retShape(PlayerNo)));
+
                 players.get(PlayerNo).sendData("end");
                 //queueFlag=0;
                 //this.getPlayerData());
@@ -75,7 +78,11 @@ public class ChineseCheckers extends Game{
 
 
 
-            if(checkWinnig(PlayerNo))   {return 0;}
+            if(checkWinnig(PlayerNo))   {
+                inactivePlayers.add(players.get(PlayerNo));
+                players.remove(PlayerNo);
+                return players.size()-1;
+            }
         }
         this.actualPossibleMoves.clear();
 
@@ -89,12 +96,22 @@ public class ChineseCheckers extends Game{
         for(Player p : players){
             p.sendData("end");
         }
+
+        for(Shape shape : playerData){
+            for(Player p : inactivePlayers){
+                p.sendData(App.codeFigure(shape));
+            }
+
+        }
+        for(Player p : inactivePlayers){
+            p.sendData("end");
+        }
         //players.get(PlayerNo).sendData("end");
 
         this.players.get(PlayerNo).endRound();
         ((ChineseCheckersPawn) activePawn).lastPosition.clear();
         activePawn=null;
-        return 1;
+        return players.size()-1;
     }
 
     private boolean checkWinnig(int PlayerNo){

@@ -122,7 +122,7 @@ public class Player implements Runnable{
 
                 if(data.equals("START GAME"))
                 {
-                    //System.out.println(data);
+                    System.out.println(data);
                     String gameName=in.nextLine();
                     System.out.println(gameName);
                     String playerAm=in.nextLine();

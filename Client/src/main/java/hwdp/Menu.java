@@ -119,13 +119,12 @@ public class Menu extends JFrame implements ActionListener{
      */
     public void actionPerformed(ActionEvent e){
         try {
-            String selected = choiceofgame.getSelectedItem().toString();
+            String selected = amofplayers.getSelectedItem().toString();
             Object source = e.getSource();
 
             if(amofplayers.equals(source)){
                 switch (selected){
                     case "2":
-
                         players = 2;
                         break;
                     case "3":
@@ -144,7 +143,7 @@ public class Menu extends JFrame implements ActionListener{
                 System.out.println("START GAME");
                 out.println("START GAME");
                 out.println("Chinese Checkers");
-                out.println("2");
+                out.println(players);
                 this.play(players, gamename);
             }
         }catch (Exception ex){
