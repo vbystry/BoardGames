@@ -65,7 +65,7 @@ public class ChineseCheckers extends Game{
                     players.get(PlayerNo).sendData(App.codeFigure(shape));
                 }
 
-                players.get(PlayerNo).sendData(App.codeFigure(retShape(PlayerNo)));
+                players.get(PlayerNo).sendData(App.codeFigure(retShape(PlayerNo+1)));
 
                 players.get(PlayerNo).sendData("end");
                 //queueFlag=0;
@@ -101,7 +101,6 @@ public class ChineseCheckers extends Game{
             for(Player p : inactivePlayers){
                 p.sendData(App.codeFigure(shape));
             }
-
         }
         for(Player p : inactivePlayers){
             p.sendData("end");
@@ -131,7 +130,7 @@ public class ChineseCheckers extends Game{
         return winningFlag;
     }
 
-    public Shape retShape(int playerNo){
+    public MyShape retShape(int playerNo){
         switch(playerNo){
             case 1:
                 return new MyShape(1200, 50, 50, 50, new Color(100, 40, 90));

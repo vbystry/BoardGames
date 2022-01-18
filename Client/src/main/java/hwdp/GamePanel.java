@@ -192,7 +192,7 @@ public class GamePanel extends JPanel implements Runnable {
                 if(data.equals("Your turn"))
                 {
                     this.turnflag=true;
-                    //repaint();
+                    repaint();
                     System.out.println("turnFlag");
                 }
                 else if(data.equals("Turn over"))   {this.turnflag=false;}
