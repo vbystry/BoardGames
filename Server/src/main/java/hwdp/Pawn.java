@@ -4,6 +4,8 @@ import java.awt.*;
 
 /**
  * Abstrakcyjna klasa reprezentujaca pionka w dowolnej grze
+ * @author  Mateusz Bystronski
+ * @author Piotr Korycki
  */
 public abstract class Pawn {
     /**

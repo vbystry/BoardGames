@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 /**
  * klasa abstrakcyjna opisujaca pole w dowolnej grze planszowej
+ * @author Mateusz Bystronski
+ * @author Piotr Korycki
  */
 public abstract class Field {
     /**
