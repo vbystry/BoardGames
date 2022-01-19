@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 /**
  *Klasa rozszerzajaca plansze do planszy warcabow chinskich
+ * @author Piotr Korycki
+ * @author Mateusz Bystronski
  */
 public class ChineseCheckersBoard extends Board{
     /**

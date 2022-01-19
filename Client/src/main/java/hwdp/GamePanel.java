@@ -15,18 +15,50 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * @author  Piotr Korycki
+ * @author  Mateusz Bystronski
+ * klasa panelu, na ktorym prowadzona jest rozgrywka
+ * zawiera metody potrzebne do malowania, odczytu oraz wysylania danych, a takze do synchronizowania graczy (watkow)
+ */
 public class GamePanel extends JPanel implements Runnable {
+    /**
+     * flaga ruchu informujaca watek, w ktorym znajduje sie panel o mozliwosci ruchu
+     */
     private boolean turnflag = false;
+    /**
+     * flaga gry
+     */
     private boolean gameOver = false;
+    /**
+     * lista pol wyslanych przez serwer
+     */
     public ArrayList<Shape> board= new ArrayList<>();
+    /**
+     * lista pionkow
+     */
     public ArrayList<Shape> todraw = new ArrayList<>();
+    /**
+     * wejscie klienta
+     */
     private Scanner in;
+    /**
+     * wyjscie klienta
+     */
     private PrintWriter out;
    // private Scanner scanner;
     //private Jsonb jsonb = JsonbBuilder.create();
+    /**
+     * nazwa gry obslugiwanej przez klient
+     */
     private String gameName;
 
+    /**
+     * konstruktor panelu, inicjalizuje polaczenie z serwerem, uruchamia obsluge myszy oraz odczytuje figury, potrzebne do rysowania planszy
+     * @param in wejscie panelu
+     * @param out wyjscie panelu
+     * @param gameName nazwa gry
+     */
     public GamePanel(Scanner in, PrintWriter out, String gameName){
         this.in=in;
         this.out=out;
@@ -61,9 +93,13 @@ public class GamePanel extends JPanel implements Runnable {
 
 
     }
-    public Shape[][] readBoardFromBuffer(){
-        return null;
-    }
+  //  public Shape[][] readBoardFromBuffer(){
+    //    return null;
+    //}
+
+    /**
+     * metoda odczytujaca z wyjscia serwera informacje, potrzebne do prowadzenia rozgrywki
+     */
     public void readToDrawFromBuffer(){
         todraw.clear();
         boolean flag=true;
@@ -117,6 +153,10 @@ public class GamePanel extends JPanel implements Runnable {
         //return null;
     }
 
+    /**
+     * metoda obslugujaca malowanie obiektow
+     * @param g obiekt graficzny
+     */
     private void drawGame(Graphics g){
         //System.out.println("rysujemy");
         Graphics2D g2d = (Graphics2D) g;
@@ -159,6 +199,11 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
     }
+
+    /**
+     * metoda malujaca obiekty
+     * @param g obiekt graficzny
+     */
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -167,9 +212,14 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
 
-
-
+    /**
+     * klasa wewnetrzna, pelniaca funkcje rozszerzenia klasy mosyeAdapter w celu wysylania informacji o przycisnieciu myszy
+     */
     private class myMouseAdapter extends MouseAdapter{
+        /**
+         * metoda wysylajaca dane po kliknieciu
+         * @param event
+         */
         @Override
         public void mousePressed(MouseEvent event){
             System.out.println("click");
@@ -177,6 +227,9 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * metoda odpowiadajaca za komunikacje z serwerem oraz synchronizacje paneli obslugiwanych przez poszczegolne watki
+     */
     @Override
     public void run() {
         System.out.println("run");

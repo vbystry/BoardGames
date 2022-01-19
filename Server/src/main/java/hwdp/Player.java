@@ -13,23 +13,55 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Player implements Runnable{
-    private String name;
-    private Game game;
+/**
+ *  @author Piotr Korycki
+ *  @author Mateusz Bystronski
+ *  klasa reprezentujaca gracza
+ *  odbiera dane z serwera
+ *  kazdy gracz stanowi osobny, lecz zsynchronizowany watek
+ */
 
+public class Player implements Runnable{
+    //private String name;
+    //private Game game;
+    /**
+     * wlaczamy sie w serwer
+     */
     private Socket socket;
+    /**
+     * wejscie
+     */
     private Scanner in;
+    /**
+     * wyjscie
+     */
     private PrintWriter out;
-    private Jsonb jsonb;
+    //private Jsonb jsonb;
+    /**
+     * serwer zarzadzajacy graczami
+     */
     private App master;
+    /**
+     * flaga gry
+     */
     private boolean gameOver=false;
 
+    /**
+     * konstruktor gracza, gracza podlacza sie do odpowiedniego serwera
+     * @param socket gniazdo wybranego serwera
+     * @param master wybrany serwer
+     */
     Player(Socket socket, App master){
         this.socket=socket;
-        this.jsonb=JsonbBuilder.create();
+       // this.jsonb=JsonbBuilder.create();
         this.master=master;
     }
 
+    /**
+     * metoda pobierajaca z klienta informacje o kliknieciu mysza
+     * @param game wybrana gra, ktora obserwujemy
+     * @return tablica wspolrzednych
+     */
     public Object[] getClickInfo(Game game){
         /*String event = in.nextLine();
         MouseEvent e = jsonb.fromJson(event, MouseEvent.class);
@@ -54,6 +86,11 @@ public class Player implements Runnable{
         }
     }
 
+    /**
+     * metoda inicjujaca wybrana rozgrywke oraz operujaca danymi o polach
+     * @param game gra, ktora przetwarza serwer
+     * @return
+     */
     public int startGame(Game game){
 
         System.out.println("Started");

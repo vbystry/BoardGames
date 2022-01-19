@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 /**
  * klasa okna, w kotrym odbywa sie rozgrywka
+ * @author  Piotr Korycki
+ * @author  Mateusz Bystronski
  */
 public class GameFrame extends JFrame {
     /**
