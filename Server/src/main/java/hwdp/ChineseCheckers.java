@@ -6,18 +6,53 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * klasa rozgrywki wrcabow chinskich
+ * zawiera zbior zasad oraz atrybutow potrzebnych do obslugi planszy
+ * @author Piotr Korycki
+ * @author  Mateusz Bystronski
+ */
 public class ChineseCheckers extends Game{
-
+    /**
+     * szerokosc od ktorej chcemy generowac plansze
+     */
     private static final double initx = 130;
+    /**
+     * wysokosc od jakiej chcemy generowac plansze
+     */
     private static final double inity = 10;
     //private static double ix, iy;
+    /**
+     * stala szerokosc pola
+     */
     final static private int mycdiameter = 50;
+    /**
+     * stala odleglosc miedzy polami w poziomie
+     */
     final static private int standarddis = 10;
     private boolean startFlag=false;
+    /**
+     * talica list tablic, zawierajaca  liste wspolrzednych (w postaci tablicy dwuelementowej) jako komorke w tablicy o indeksie rownym numerze gracza
+     * pola zawarte w tablicy to pola na ktorych musza znalezc sie pionki, by ich operator zwyciezyl
+     */
     private ArrayList<int[]>[] winningfields;
+    /**
+     * talica list tablic, zawierajaca  liste wspolrzednych (w postaci tablicy dwuelementowej) jako komorke w tablicy o indeksie rownym numerze gracza
+     * pola zwarte w tablicy to pola, na ktorych nie moga sie znalezc pionki danego gracza
+     */
     private ArrayList<int[]>[] forbiddenfields;
+    /**
+     * gracze wylaczeni z rozgrywki
+     */
     private ArrayList<Player> inactivePlayers=new ArrayList<>();
+    /**
+     * tablica kolorow pionkow, indeks symbolizuje numer gracza
+     */
     private Color[] colors;
+
+    /**
+     * metoda tworzaca kolory pionkow
+     */
     private void createColors(){
         colors = new Color[7];
         colors[1] = new Color(100, 40, 90);
@@ -28,15 +63,28 @@ public class ChineseCheckers extends Game{
         colors[6] = new Color(100, 100, 0);
     }
 
+    /**
+     * metoda dajaca dostep do struktury winningfields poza klasa
+     * @param pos numer gracza
+     * @return struktura winningfields
+     */
     public ArrayList<int[]> getWinningfields(int pos){
         return winningfields[pos];
     }
+    /**
+     * metoda dajaca dostep do struktury forbiddenfields poza klasa
+     * @param pos numer gracza
+     * @return struktura forbiddenfields
+     */
     public ArrayList<int[]> getForbiddenFields(int pos){
         return forbiddenfields[pos];
     }
 
 
-
+    /**
+     * konstruktor gry inicjujacy jej utworzenie
+     * @param playerAm liczba graczy prowadzacych rozgrywke
+     */
     ChineseCheckers(int playerAm){
         super(playerAm);
         this.createColors();
@@ -125,6 +173,11 @@ public class ChineseCheckers extends Game{
         return players.size()-1;
     }
 
+    /**
+     * metoda rozstrzygajaca zwyciestwo lub jego brak
+     * @param PlayerNo numer gracza, ktory jest sprawdzany
+     * @return true jesli gracz zwyciezyl
+     */
     private boolean checkWinnig(int PlayerNo){
         //Do zaimplementowania
 
@@ -141,9 +194,20 @@ public class ChineseCheckers extends Game{
 
         return winningFlag;
     }
+
+    /**
+     * metoda rozszezajaca dostep do metody checkWinning (potrzebne do testow)
+     * @param pl numer gracza
+     * @return true jesli gracz zwyciezyl
+     */
     public boolean tmp (int pl){
         return this.checkWinnig(pl);
     }
+
+    /**
+     * metoda ustawiajaca piony danego gracza na pozycjach zwycieskich, potrzebna do przetestowania rozgrywki
+     * @param pl numer gracza
+     */
     public void setWinner(int pl){
         int c = 0;
         for(Pawn p : pawns){
@@ -182,8 +246,8 @@ public class ChineseCheckers extends Game{
     }
 
     /**
-     *
-     * @param numofplayers
+     *metoda tworzaca pionki, zakazane oraz zwycieskie pola dla wszystkich graczy
+     * @param numofplayers liczba graczy bioracych udzial w rozgrywce
      */
     @Override
     protected void createPawns(int numofplayers) {
@@ -656,6 +720,9 @@ public class ChineseCheckers extends Game{
 
     }
 
+    /**
+     * metoda inicjalizujaca powstanie planszy
+     */
     @Override
     protected void createBoard() {
         this.board = new ChineseCheckersBoard();
@@ -742,7 +809,12 @@ public class ChineseCheckers extends Game{
         board.fields[P.position[0]][P.position[1]].getPawns().add(P);
     }
 
-
+    /**
+     * metoda statyczna przeksztlcajaca tablice wspolrzednych w macierzy we wspolrzedne panelu
+     * @param coords wspolrzedne wejsciowe
+     * @param type typ elementu, dla ktorego dokonujemy konwersji
+     * @return wspolrzedne panelu
+     */
     public static double[] covertCoords(int[] coords, String type) {
         if(type.equals("Pawn"))
         {
@@ -758,6 +830,11 @@ public class ChineseCheckers extends Game{
         }
     }
 
+    /**
+     * metoda statyczna konwertujaca wspolrzedne pionka
+     * @param coords wejsciowe wspolrzedne
+     * @return wspolrzedne w panelu
+     */
     private static double[] pawnCoordsConv(int[] coords){
         double[] converted = new double[2];
 
@@ -776,6 +853,11 @@ public class ChineseCheckers extends Game{
         return converted;
     }
 
+    /**
+     * metoda statyczna konwertujaca wspolrzedne pola
+     * @param coords wejsciowe wspolrzedne
+     * @return wspolrzedne w panelu
+     */
     public static double[] fieldCoordsConv(int[] coords){
         double[] converted = new double[2];
 
@@ -799,6 +881,9 @@ public class ChineseCheckers extends Game{
         return list.size();
     }
 
+    /**
+     * metoda uruchamiajaca watki graczy
+     */
     @Override
     public void run() {
         System.out.println("rozpoczynam run");

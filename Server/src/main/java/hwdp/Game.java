@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 /**
  * Abstrakcyjna klasa reprezentujaca dowolna gre planszowa
+ * @author Piotr Korycki
+ * @author Mateusz Bystronski
  */
 public abstract class Game implements Runnable{
     /**
@@ -36,6 +38,10 @@ public abstract class Game implements Runnable{
     int playerAm;
     //private Jsonb jsonb = JsonbBuilder.create();
 
+    /**
+     * konstruktor
+     * @param playerAm liczba graczy
+     */
     Game(int playerAm){
         //this.pawns= new ArrayList<Pawn>();
         //this.playerAm=playerAm;
@@ -48,12 +54,29 @@ public abstract class Game implements Runnable{
 
     }
 
+    /**
+     * metoda dodajaca gracza
+     * @param player obiekt watku gracza
+     */
     public abstract void addPlayer(Player player);  //tu
 
+    /**
+     * metoda wykonania rundy
+     * @return 1 by kontynuowac rogrywke
+     */
     protected abstract int Round();
 
+    /**
+     * metoda kolejkujaca graczy
+     * @param PlayerNo numer gracza
+     * @return 1 by kontynuowac
+     */
     protected abstract int Queue(int PlayerNo);
 
+    /**
+     * metoda pobierajaca pionki oraz mozliwe ruchy dla danego gracza
+     * @return lista figur
+     */
     protected ArrayList<Shape> getPlayerData(){
         ArrayList<Shape> data = new ArrayList<Shape>();
         for(Pawn pawn : pawns){
@@ -69,18 +92,45 @@ public abstract class Game implements Runnable{
         return data;
     }
 
+    /**
+     * metoda tworzaca uklad pionow wraz z ich potrzebnymi atrybutami
+     * @param numofplayers liczba graczy
+     */
     protected abstract void createPawns(int numofplayers);
 
+    /**
+     * metoda inicjalizujaca powstanie planszy
+     */
     protected abstract void createBoard();
 
+    /**
+     * metoda obslugujaca sygnal o uzyciu kursora
+     * @param info tablica informacji z serwera
+     * @param playerNo numer gracza
+     * @return 1 w celu kontynuowania kolejki, 0 w celu jej zakonczenia
+     */
     protected abstract int HandleClickInfo(Object[] info, int playerNo);
 
+    /**
+     * metoda zmieniajaca pozycje pionka na docelowa
+     * @param P
+     * @param position
+     */
     protected abstract void movePawn(Pawn P, int[] position);
 
+    /**
+     * metoda statyczna przeksztlcajaca tablice wspolrzednych w macierzy we wspolrzedne panelu
+     * @param coords wspolrzedne wejsciowe
+     * @param type typ elementu, dla ktorego dokonujemy konwersji
+     * @return wspolrzedne panelu
+     */
     public static double[] covertCoords(int[] coords, String type){ //chyba tez to lepiej wywalic (jak enum)
         return new double[0];
     }
 
+    /**
+     * metoda uruchamiajaca watki graczy
+     */
     @Override
     public void run(){}
 }
