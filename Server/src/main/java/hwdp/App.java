@@ -18,11 +18,6 @@ import java.util.concurrent.Executors;
  */
 public class App
 {
-    // All client names, so we can check for duplicates upon registration.
-    /**
-     * uporzadkowany zbior klientow (wyklucza powtorzenia)
-     */
-    //private static Set<String> names = new HashSet<>();
     /**
      * lista gier obslugiwanych przez serwer
      */
