@@ -219,7 +219,7 @@ public class ChineseCheckers extends Game{
         }
 
     }
-    public Shape retShape(int playerNo){
+    public MyShape retShape(int playerNo){
         switch(playerNo){
             case 1:
                 return new MyShape(1200, 50, 50, 50, colors[0]);

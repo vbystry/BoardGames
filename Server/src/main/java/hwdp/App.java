@@ -22,7 +22,7 @@ public class App
     /**
      * uporzadkowany zbior klientow (wyklucza powtorzenia)
      */
-    private static Set<String> names = new HashSet<>();
+    //private static Set<String> names = new HashSet<>();
     /**
      * lista gier obslugiwanych przez serwer
      */
@@ -32,7 +32,7 @@ public class App
     /**
      * zbior elementow wyjscia
      */
-    private static Set<PrintWriter> writers = new HashSet<>();
+    //private static Set<PrintWriter> writers = new HashSet<>();
 
     /**
      *
@@ -85,7 +85,7 @@ public class App
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println("The chat server is running...");
+        System.out.println("The game server is running...");
         App master = new App();
         var pool = Executors.newFixedThreadPool(500);
         try (var listener = new ServerSocket(59001)) {
