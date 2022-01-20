@@ -9,8 +9,8 @@ import java.util.Arrays;
 /**
  * klasa rozgrywki wrcabow chinskich
  * zawiera zbior zasad oraz atrybutow potrzebnych do obslugi planszy
- * @author Piotr Korycki
  * @author  Mateusz Bystronski
+ * @author Piotr Korycki
  */
 public class ChineseCheckers extends Game{
     /**

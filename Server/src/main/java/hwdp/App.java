@@ -13,8 +13,8 @@ import java.util.concurrent.Executors;
 
 /**
  * klasa obslugujaca serwer
+ * @author  Mateusz Bystronski
  * @author Piotr Korycki
- * @author Mateusz Bystronski
  */
 public class App
 {

@@ -16,10 +16,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @author  Piotr Korycki
  * @author  Mateusz Bystronski
- * klasa panelu, na ktorym prowadzona jest rozgrywka
- * zawiera metody potrzebne do malowania, odczytu oraz wysylania danych, a takze do synchronizowania graczy (watkow)
+ * @author  Piotr Korycki
+ * klasa panelu, na ktorym prowadzona jest rozgrywka, zawiera metody potrzebne do malowania, odczytu oraz wysylania danych, a takze do synchronizowania graczy (watkow)
  */
 public class GamePanel extends JPanel implements Runnable {
     /**

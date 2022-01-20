@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ *  @author  Mateusz Bystronski
  *  @author Piotr Korycki
- *  @author Mateusz Bystronski
  *  klasa reprezentujaca gracza
  *  odbiera dane z serwera
  *  kazdy gracz stanowi osobny, lecz zsynchronizowany watek

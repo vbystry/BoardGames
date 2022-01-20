@@ -5,8 +5,8 @@ import java.awt.geom.Ellipse2D;
 
 /**
  * klasa ksztaltu malowanych figur
+ *  @author  Mateusz Bystronski
  * @author Piotr Korycki
- * @author Mateusz Bystronski
  */
 public class MyShape extends Ellipse2D.Double {
     /**

@@ -9,7 +9,8 @@ import java.util.Scanner;
 
 /**
  * klasa klienta  odpowiadajaca za utworzenie okna menu wyboru gry
- *
+ *@author  Mateusz Bystronski
+ * @author Piotr Korycki
  */
 public class App {
     /**

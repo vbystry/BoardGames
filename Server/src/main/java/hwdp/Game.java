@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 /**
  * Abstrakcyjna klasa reprezentujaca dowolna gre planszowa
+ * @author  Mateusz Bystronski
  * @author Piotr Korycki
- * @author Mateusz Bystronski
  */
 public abstract class Game implements Runnable{
     /**

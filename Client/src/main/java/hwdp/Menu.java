@@ -11,8 +11,8 @@ import java.util.Scanner;
 
 /**
  * klasa definiujaca wyglad oraz dzialanie menu woboru dowolnej gry
+ * @author  Mateusz Bystronski
  * @author Piotr Korycki
- * @author Mateusz Bystronski
  */
 public class Menu extends JFrame implements ActionListener{
     /**
