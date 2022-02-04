@@ -223,6 +223,7 @@ public class ChineseCheckersBoard extends Board{
                     //double[] coords = ChineseCheckers.covertCoords(xy, "Field")
                     else {
                         if(moveNo==1){
+                            //((ChineseCheckersPawn) pawn).jumpFlag=false;
                             returnList.add(this.fields[xy[0]][xy[1]]);    //dopilnowac kolejnosc kordow, zmienic dlugosc i szerokosc
                         }
                         //System.out.println(App.codeFigure(returnList.get(returnList.size() - 1).getShape()));
@@ -243,7 +244,7 @@ public class ChineseCheckersBoard extends Board{
                             break;
                         }
                     }
-                    else if(counter-pawnCounter == pawnCounter)
+                    else if(counter-pawnCounter == pawnCounter && ((ChineseCheckersPawn) pawn).jumpFlag)
                     {
                         //double[] coords = ChineseCheckers.covertCoords(xy, "Field");
                         returnList.add(this.fields[xy[0]][xy[1]]);

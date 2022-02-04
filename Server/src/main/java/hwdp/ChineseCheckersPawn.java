@@ -10,6 +10,8 @@ public class ChineseCheckersPawn extends Pawn{
 
     public boolean outOfBase=false;
 
+    public boolean jumpFlag=true;
+
     private status Status;
     /**
      * lista
