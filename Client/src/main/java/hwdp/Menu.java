@@ -159,6 +159,7 @@ public class Menu extends JFrame implements ActionListener{
      * metoda oczekuje na sygnal "Start" wydany przez serwer
      * @param players wybrana liczba graczy
      * @param game wybrana nazwa gry
+     * @author  Mateusz Bystronski
      */
     private void play(int players, String game){
         String data="";

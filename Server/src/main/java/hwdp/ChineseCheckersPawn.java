@@ -71,6 +71,7 @@ public class ChineseCheckersPawn extends Pawn{
     /**
      * metoda przemieszczajaca pionek z pierwotnej pozycji na nowa
      * @param Position  docelowe polozenie w macierzy
+     * @author  Mateusz Bystronski
      */
     @Override
     public void move(int[] Position){

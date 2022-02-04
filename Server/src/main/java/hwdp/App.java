@@ -30,11 +30,12 @@ public class App
     //private static Set<PrintWriter> writers = new HashSet<>();
 
     /**
-     *
+     * metoda rozpoczynająca gre wywolywana przez gracza
      * @param Name nazwa gry
      * @param playerAm liczba graczy
      * @param caller
-     * @return
+     * @return 1 jesli wszystko ok, 0 jesli nie
+     * @author  Mateusz Bystronski
      */
     public int newGame(String Name, String playerAm, Player caller){
         switch (Name){
@@ -68,6 +69,7 @@ public class App
      * metoda kodujaca ksztalt w format mozliwy dio przeslania
      * @param shape kodowany ksztalt
      * @return zakodowany obiekt
+     * @author  Mateusz Bystronski
      */
     public static String codeFigure(Shape shape){
         if(shape instanceof MyShape){

@@ -57,6 +57,8 @@ public class GamePanel extends JPanel implements Runnable {
      * @param in wejscie panelu
      * @param out wyjscie panelu
      * @param gameName nazwa gry
+     * @author  Mateusz Bystronski
+     * @author  Piotr Korycki
      */
     public GamePanel(Scanner in, PrintWriter out, String gameName){
         this.in=in;
@@ -98,6 +100,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     /**
      * metoda odczytujaca z wyjscia serwera informacje, potrzebne do prowadzenia rozgrywki
+     * @author  Mateusz Bystronski
      */
     public void readToDrawFromBuffer(){
         todraw.clear();
@@ -125,6 +128,10 @@ public class GamePanel extends JPanel implements Runnable {
         //return null;
     }
 
+    /**
+     * @param prevData
+     * @author  Mateusz Bystronski
+     */
     public void readToDrawFromBuffer(String prevData){
         todraw.clear();
         todraw.add(App.decodeFigure(prevData));
@@ -155,6 +162,7 @@ public class GamePanel extends JPanel implements Runnable {
     /**
      * metoda obslugujaca malowanie obiektow
      * @param g obiekt graficzny
+     * @author  Mateusz Bystronski
      */
     private void drawGame(Graphics g){
         //System.out.println("rysujemy");
@@ -180,6 +188,12 @@ public class GamePanel extends JPanel implements Runnable {
 
 
     }
+
+    /**
+     * Metoda wysylajaca informacje dotyczace klikniecia
+     * @param e
+     * @author  Mateusz Bystronski
+     */
     public void sendClickInfo(MouseEvent e){
         if(turnflag)
         {
@@ -213,6 +227,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     /**
      * klasa wewnetrzna, pelniaca funkcje rozszerzenia klasy mosyeAdapter w celu wysylania informacji o przycisnieciu myszy
+     * @author  Mateusz Bystronski
      */
     private class myMouseAdapter extends MouseAdapter{
         /**
@@ -227,7 +242,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * metoda odpowiadajaca za komunikacje z serwerem oraz synchronizacje paneli obslugiwanych przez poszczegolne watki
+     * Przebieg gry w kliencie
+     * @author  Mateusz Bystronski
      */
     @Override
     public void run() {

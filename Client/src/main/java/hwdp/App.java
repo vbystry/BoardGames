@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  * klasa klienta  odpowiadajaca za utworzenie okna menu wyboru gry
- *@author  Mateusz Bystronski
+ * @author  Mateusz Bystronski
  * @author Piotr Korycki
  */
 public class App {
@@ -17,6 +17,7 @@ public class App {
      * metoda dekodujaca lancuch znakow w obiekt graficzny
      * @param figure zakodowany lancuch znakow
      * @return odkodowany ksztalt
+     * @author  Mateusz Bystronski
      */
     public static Shape decodeFigure(String figure){
             System.out.println(figure);

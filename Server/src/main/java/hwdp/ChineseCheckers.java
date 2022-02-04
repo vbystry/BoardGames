@@ -95,6 +95,9 @@ public class ChineseCheckers extends Game{
         this.actualPossibleMoves=new ArrayList<Field>();
     }
 
+    /**
+     * @author  Mateusz Bystronski
+     */
     @Override
     protected int Round() {
         int PlayerNo=0;
@@ -106,6 +109,9 @@ public class ChineseCheckers extends Game{
         return 1;
     }
 
+    /**
+     * @author  Mateusz Bystronski
+     */
     @Override
     protected int Queue(int PlayerNo) {
         int queueFlag=1;
@@ -177,6 +183,7 @@ public class ChineseCheckers extends Game{
      * metoda rozstrzygajaca zwyciestwo lub jego brak
      * @param PlayerNo numer gracza, ktory jest sprawdzany
      * @return true jesli gracz zwyciezyl
+     * @author  Mateusz Bystronski
      */
     private boolean checkWinnig(int PlayerNo){
         //Do zaimplementowania
@@ -742,6 +749,9 @@ public class ChineseCheckers extends Game{
         }*/
     }
 
+    /**
+     * @author  Mateusz Bystronski
+     */
     @Override
     protected int HandleClickInfo(Object[] info, int playerNo) {   //1- kontynuujemy runde, 0- koniec
         Point2D click=new Point2D.Double((double) info[0], (double) info[1]);
@@ -882,7 +892,8 @@ public class ChineseCheckers extends Game{
     }
 
     /**
-     * metoda uruchamiajaca watki graczy
+     * przebieg gry
+     * @author  Mateusz Bystronski
      */
     @Override
     public void run() {

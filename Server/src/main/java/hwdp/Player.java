@@ -15,7 +15,6 @@ import java.util.Scanner;
 
 /**
  *  @author  Mateusz Bystronski
- *  @author Piotr Korycki
  *  klasa reprezentujaca gracza
  *  odbiera dane z serwera
  *  kazdy gracz stanowi osobny, lecz zsynchronizowany watek
@@ -61,6 +60,7 @@ public class Player implements Runnable{
      * metoda pobierajaca z klienta informacje o kliknieciu mysza
      * @param game wybrana gra, ktora obserwujemy
      * @return tablica wspolrzednych
+     * @author  Mateusz Bystronski
      */
     public Object[] getClickInfo(Game game){
         /*String event = in.nextLine();

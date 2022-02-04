@@ -183,6 +183,7 @@ public class ChineseCheckersBoard extends Board{
      * @param pawn pionek, dla ktorego wyszukujemy mozliwych ruchow
      * @param moveNo
      * @return lista pol, na ktore mozna przemiescic pionka
+     * @author  Mateusz Bystronski
      */
     @Override
     public ArrayList<Field> getPossibleMoves(Pawn pawn, int moveNo) {   //pewnie o czyms i tak zapomnialem
